@@ -1,0 +1,10 @@
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\bin\Debug\Stingray.exe.config
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\bin\Debug\Stingray.exe
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\bin\Debug\Stingray.pdb
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.csproj.AssemblyReference.cache
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.Form1.resources
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.Properties.Resources.resources
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.csproj.GenerateResource.cache
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.csproj.CoreCompileInputs.cache
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.exe
+C:\Users\Carlos Luiz\Documents\ASAFE\Stingray\Stingray\obj\Debug\Stingray.pdb
