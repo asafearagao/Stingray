@@ -1,0 +1,12 @@
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\bin\Debug\Stingray.exe.config
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\bin\Debug\Stingray.exe
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\bin\Debug\Stingray.pdb
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.csproj.AssemblyReference.cache
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.PagamentosForm.resources
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.DashboardForm.resources
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.Properties.Resources.resources
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.csproj.GenerateResource.cache
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.csproj.CoreCompileInputs.cache
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.exe
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.pdb
+C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.AlunosForm.resources

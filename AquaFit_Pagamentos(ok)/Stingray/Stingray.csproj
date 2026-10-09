@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05352C82-35AC-438E-904A-0EF8C1ABA39B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Stingray</RootNamespace>
+    <AssemblyName>Stingray</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PagamentosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagamentosForm.Designer.cs">
+      <DependentUpon>PagamentosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlunosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlunosForm.Designer.cs">
+      <DependentUpon>AlunosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfessoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfessoresForm.Designer.cs">
+      <DependentUpon>ProfessoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurmasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurmasForm.Designer.cs">
+      <DependentUpon>TurmasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HorariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HorariosForm.Designer.cs">
+      <DependentUpon>HorariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MatriculasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatriculasForm.Designer.cs">
+      <DependentUpon>MatriculasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresencaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresencaForm.Designer.cs">
+      <DependentUpon>PresencaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RelatoriosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelatoriosForm.Designer.cs">
+      <DependentUpon>RelatoriosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracoesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfiguracoesForm.Designer.cs">
+      <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlunosForm.resx">
+      <DependentUpon>AlunosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagamentosForm.resx">
+      <DependentUpon>PagamentosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
