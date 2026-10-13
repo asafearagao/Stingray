@@ -8,12 +8,12 @@ namespace Stingray
         public PresencaForm()
         {
             InitializeComponent();
-            painelConteudo.Paint += PainelConteudo_Paint;
+            pnlPresenca.Paint += pnlPresenca_Paint;
         }
 
-        private void PainelConteudo_Paint(object sender, PaintEventArgs e)
+        private void pnlPresenca_Paint(object sender, PaintEventArgs e)
         {
-            Rectangle area = painelConteudo.ClientRectangle;
+            Rectangle area = pnlPresenca.ClientRectangle;
             if (area.Width <= 1 || area.Height <= 1)
                 return;
 

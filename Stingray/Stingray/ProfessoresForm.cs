@@ -8,12 +8,12 @@ namespace Stingray
         public ProfessoresForm()
         {
             InitializeComponent();
-            painelConteudo.Paint += PainelConteudo_Paint;
+            pnlProfessores.Paint += pnlProfessores_Paint;
         }
 
-        private void PainelConteudo_Paint(object sender, PaintEventArgs e)
+        private void pnlProfessores_Paint(object sender, PaintEventArgs e)
         {
-            Rectangle area = painelConteudo.ClientRectangle;
+            Rectangle area = pnlProfessores.ClientRectangle;
             if (area.Width <= 1 || area.Height <= 1)
                 return;
 
@@ -24,6 +24,5 @@ namespace Stingray
                 e.Graphics.DrawRectangle(borda, area);
             }
         }
-
     }
 }

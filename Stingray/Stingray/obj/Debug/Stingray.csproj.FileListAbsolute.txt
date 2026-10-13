@@ -10,3 +10,17 @@ C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\De
 C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.exe
 C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.pdb
 C:\Users\lmacr\Downloads\AquaFit_WinForms_Dashboard_Titulo_Borda\Stingray\obj\Debug\Stingray.AlunosForm.resources
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\bin\Debug\Stingray.exe.config
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\bin\Debug\Stingray.exe
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\bin\Debug\Stingray.pdb
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.csproj.AssemblyReference.cache
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.AlunosForm.resources
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.PagamentosForm.resources
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.DashboardForm.resources
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.Properties.Resources.resources
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.csproj.GenerateResource.cache
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.csproj.CoreCompileInputs.cache
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.exe
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.pdb
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.ProfessoresForm.resources
+C:\Users\Carlos Luiz\Documents\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.PresencaForm.resources
