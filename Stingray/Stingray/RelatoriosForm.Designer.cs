@@ -1,19 +1,15 @@
-﻿namespace Stingray
-{
-    partial class RelatoriosForm
-    {
+﻿namespace Stingray {
+    partial class RelatoriosForm {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel painelConteudo;
 
-        protected override void Dispose(bool disposing)
-        {
+        protected override void Dispose(bool disposing) {
             if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.painelConteudo = new System.Windows.Forms.Panel();
             this.SuspendLayout();

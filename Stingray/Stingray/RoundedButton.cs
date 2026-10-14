@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -8,9 +8,10 @@ namespace Stingray {
     [DefaultEvent("Click")]
     [ToolboxItem(true)]
     public class RoundedButton : Button {
-        private int cornerRadius = 7;
+        private int cornerRadius = 9;
         private bool pointerInside;
         private bool pointerPressed;
+        private bool showLeftIndicator;
         private const float BorderThickness = 1f;
 
         public RoundedButton() {
@@ -28,7 +29,18 @@ namespace Stingray {
         }
 
         [Category("Appearance")]
-        [DefaultValue(7)]
+        [DefaultValue(false)]
+        public bool ShowLeftIndicator {
+            get { return showLeftIndicator; }
+            set {
+                if (showLeftIndicator == value) return;
+                showLeftIndicator = value;
+                Invalidate();
+            }
+        }
+
+        [Category("Appearance")]
+        [DefaultValue(9)]
         public int CornerRadius {
             get { return cornerRadius; }
             set {
@@ -73,16 +85,43 @@ namespace Stingray {
                 using (GraphicsPath path = CreateRoundedPath(bounds, cornerRadius))
                 using (SolidBrush fill = new SolidBrush(GetDisplayedBackColor())) {
                     graphics.FillPath(fill, path);
+                }
 
-                    Color borderColor = Enabled ? FlatAppearance.BorderColor : SystemColors.ControlDark;
-                    if (borderColor == Color.Empty)
-                        borderColor = Color.FromArgb(229, 231, 235);
-
-                    using (Pen border = new Pen(borderColor, BorderThickness)) {
-                        border.Alignment = PenAlignment.Center;
-                        border.LineJoin = LineJoin.Round;
-                        graphics.DrawPath(border, path);
+                if (showLeftIndicator) {
+                    // A faixa acompanha o contorno arredondado do botão e termina suavemente
+                    // antes das extremidades, evitando o aspecto de um retângulo sobreposto.
+                    GraphicsState indicatorState = graphics.Save();
+                    try {
+                        using (GraphicsPath buttonShape = CreateRoundedPath(bounds, cornerRadius)) {
+                            graphics.SetClip(buttonShape, CombineMode.Intersect);
+                            // Faixa estreita, próxima da borda esquerda e com pequenas
+                            // margens verticais. O raio próprio da faixa forma extremidades
+                            // arredondadas sem transformar o indicador em um bloco largo.
+                            RectangleF faixa = new RectangleF(
+                                bounds.Left,
+                                bounds.Top + 2.5f,
+                                3.5f,
+                                Math.Max(1f, bounds.Height - 5f));
+                            using (GraphicsPath indicatorPath = CreateRoundedPath(faixa, 2))
+                            using (SolidBrush indicatorBrush = new SolidBrush(Color.FromArgb(25, 86, 196))) {
+                                graphics.FillPath(indicatorBrush, indicatorPath);
+                            }
+                        }
                     }
+                    finally {
+                        graphics.Restore(indicatorState);
+                    }
+                }
+
+                Color borderColor = Enabled ? FlatAppearance.BorderColor : SystemColors.ControlDark;
+                if (borderColor == Color.Empty)
+                    borderColor = Color.FromArgb(229, 231, 235);
+
+                using (GraphicsPath path = CreateRoundedPath(bounds, cornerRadius))
+                using (Pen border = new Pen(borderColor, BorderThickness)) {
+                    border.Alignment = PenAlignment.Center;
+                    border.LineJoin = LineJoin.Round;
+                    graphics.DrawPath(border, path);
                 }
 
                 DrawButtonText(graphics);
@@ -178,5 +217,7 @@ namespace Stingray {
             path.CloseFigure();
             return path;
         }
+
+
     }
 }
