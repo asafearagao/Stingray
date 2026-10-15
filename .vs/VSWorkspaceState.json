@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Stingray"
+    "\\Stingray",
+    "\\Stingray\\Stingray"
   ],
-  "SelectedNode": "\\Stingray\\Stingray.sln",
+  "SelectedNode": "\\Stingray\\Stingray\\ProfessoresForm.cs",
   "PreviewInSolutionExplorer": false
 }
