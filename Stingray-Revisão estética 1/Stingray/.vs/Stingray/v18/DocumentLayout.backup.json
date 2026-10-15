@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Carlos Luiz\\Documents\\GitHub\\Stingray\\Stingray-Revis\u00E3o est\u00E9tica 1\\Stingray\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05352C82-35AC-438E-904A-0EF8C1ABA39B}|Stingray\\Stingray.csproj|c:\\users\\carlos luiz\\documents\\github\\stingray\\stingray-revis\u00E3o est\u00E9tica 1\\stingray\\stingray\\professoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{05352C82-35AC-438E-904A-0EF8C1ABA39B}|Stingray\\Stingray.csproj|solutionrelative:stingray\\professoresform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProfessoresForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Carlos Luiz\\Documents\\GitHub\\Stingray\\Stingray-Revis\u00E3o est\u00E9tica 1\\Stingray\\Stingray\\ProfessoresForm.cs",
+              "RelativeDocumentMoniker": "Stingray\\ProfessoresForm.cs",
+              "ToolTip": "C:\\Users\\Carlos Luiz\\Documents\\GitHub\\Stingray\\Stingray-Revis\u00E3o est\u00E9tica 1\\Stingray\\Stingray\\ProfessoresForm.cs [Design]",
+              "RelativeToolTip": "Stingray\\ProfessoresForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T01:13:27.138Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
