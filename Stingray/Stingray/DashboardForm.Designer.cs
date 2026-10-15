@@ -1,7 +1,5 @@
-namespace Stingray
-{
-    partial class DashboardForm
-    {
+﻿namespace Stingray {
+    partial class DashboardForm {
         private System.ComponentModel.IContainer components = null;
 
         private System.Windows.Forms.TableLayoutPanel mainLayout;
@@ -28,15 +26,13 @@ namespace Stingray
         private System.Windows.Forms.Label lblDashboardTitle;
         private System.Windows.Forms.Panel dashboardContentPanel;
 
-        protected override void Dispose(bool disposing)
-        {
+        protected override void Dispose(bool disposing) {
             if (disposing && components != null)
                 components.Dispose();
             base.Dispose(disposing);
         }
 
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.sideBar = new System.Windows.Forms.Panel();
@@ -74,8 +70,8 @@ namespace Stingray
             // mainLayout
             // 
             this.mainLayout.ColumnCount = 2;
-            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82F));
             this.mainLayout.Controls.Add(this.sideBar, 0, 0);
             this.mainLayout.Controls.Add(this.contentHost, 1, 0);
             this.mainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,7 +89,7 @@ namespace Stingray
             this.sideBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sideBar.Margin = new System.Windows.Forms.Padding(0);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Padding = new System.Windows.Forms.Padding(1);
+            this.sideBar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.sideBar.TabIndex = 0;
             // 
             // sideLayout
@@ -166,7 +162,7 @@ namespace Stingray
             this.navPanel.Location = new System.Drawing.Point(0, 136);
             this.navPanel.Margin = new System.Windows.Forms.Padding(0);
             this.navPanel.Name = "navPanel";
-            this.navPanel.Padding = new System.Windows.Forms.Padding(9, 2, 9, 0);
+            this.navPanel.Padding = new System.Windows.Forms.Padding(12, 6, 12, 0);
             this.navPanel.WrapContents = false;
             this.navPanel.TabIndex = 1;
             // 
@@ -383,7 +379,7 @@ namespace Stingray
             // 
             // contentHost
             // 
-            this.contentHost.BackColor = System.Drawing.Color.FromArgb(250, 251, 252);
+            this.contentHost.BackColor = System.Drawing.Color.FromArgb(247, 249, 252);
             this.contentHost.Controls.Add(this.dashboardPagePanel);
             this.contentHost.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentHost.Margin = new System.Windows.Forms.Padding(0);
@@ -392,7 +388,7 @@ namespace Stingray
             //
             // dashboardPagePanel
             //
-            this.dashboardPagePanel.BackColor = System.Drawing.Color.FromArgb(250, 251, 252);
+            this.dashboardPagePanel.BackColor = System.Drawing.Color.FromArgb(247, 249, 252);
             this.dashboardPagePanel.Controls.Add(this.dashboardContentPanel);
             this.dashboardPagePanel.Controls.Add(this.lblDashboardTitle);
             this.dashboardPagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -426,7 +422,7 @@ namespace Stingray
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(250, 251, 252);
+            this.BackColor = System.Drawing.Color.FromArgb(247, 249, 252);
             this.ClientSize = new System.Drawing.Size(1360, 760);
             this.Controls.Add(this.mainLayout);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -446,6 +442,5 @@ namespace Stingray
             this.contentHost.ResumeLayout(false);
             this.ResumeLayout(false);
         }
-
     }
 }
