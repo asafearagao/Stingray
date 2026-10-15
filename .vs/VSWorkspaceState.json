@@ -2,8 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\Stingray-Revisão estética 1",
+<<<<<<< Updated upstream
     "\\Stingray-Revisão estética 1\\Stingray"
   ],
   "SelectedNode": "\\Stingray-Revisão estética 1\\Stingray\\Stingray.sln",
+=======
+    "\\Stingray-Revisão estética 1\\Stingray",
+    "\\Stingray-Revisão estética 1\\Stingray\\Stingray"
+  ],
+  "SelectedNode": "\\Stingray-Revisão estética 1\\Stingray\\Stingray\\ProfessoresForm.cs",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }
