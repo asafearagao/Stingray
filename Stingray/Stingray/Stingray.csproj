@@ -132,6 +132,12 @@
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresencaForm.resx">
+      <DependentUpon>PresencaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfessoresForm.resx">
+      <DependentUpon>ProfessoresForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

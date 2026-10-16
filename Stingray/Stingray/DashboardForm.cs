@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -53,12 +53,25 @@ namespace Stingray {
 
         private void ConfigurarEventosNavegacao() {
             foreach (Button botao in BotoesNavegacao()) {
+                RoundedButton visual = botao as RoundedButton;
+                if (visual != null) visual.CornerRadius = 7;
+                botao.Height = 40;
+                botao.Font = new Font("Segoe UI Semibold", 9.25F, FontStyle.Regular, GraphicsUnit.Point);
+                botao.Padding = new Padding(12, 0, 4, 0);
+                botao.TextAlign = ContentAlignment.MiddleLeft;
+                botao.FlatAppearance.BorderSize = 0;
                 botao.Click += Navegacao_Click;
                 botao.MouseEnter += BotaoMenu_MouseEnter;
                 botao.MouseLeave += BotaoMenu_MouseLeave;
                 botao.SizeChanged += delegate { AjustarLarguraNavegacao(); };
             }
 
+            RoundedButton sairArredondado = btnSair as RoundedButton;
+            if (sairArredondado != null) sairArredondado.CornerRadius = 7;
+            btnSair.Height = 40;
+            btnSair.Font = new Font("Segoe UI Semibold", 9.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSair.Padding = new Padding(12, 0, 4, 0);
+            btnSair.FlatAppearance.BorderSize = 0;
             btnSair.Click += delegate { Close(); };
             btnSair.MouseEnter += delegate {
                 btnSair.BackColor = azulClaro;
@@ -107,6 +120,8 @@ namespace Stingray {
 
                     PagamentosForm pagamentos = paginaVisivel as PagamentosForm;
                     if (pagamentos != null) pagamentos.FecharSeletores();
+                    PresencaForm presenca = paginaVisivel as PresencaForm;
+                    if (presenca != null) presenca.FecharSeletores();
                     paginaVisivel.Visible = false;
                 }
 
@@ -123,6 +138,8 @@ namespace Stingray {
                 if (controle != pagina) {
                     PagamentosForm pagamentos = controle as PagamentosForm;
                     if (pagamentos != null) pagamentos.FecharSeletores();
+                    PresencaForm presenca = controle as PresencaForm;
+                    if (presenca != null) presenca.FecharSeletores();
                     controle.Visible = false;
                 }
             }
@@ -170,6 +187,9 @@ namespace Stingray {
                 bool selecionado = item == botao;
                 item.BackColor = selecionado ? azulClaro : Color.White;
                 item.ForeColor = selecionado ? azul : textoEscuro;
+                RoundedButton botaoArredondado = item as RoundedButton;
+                if (botaoArredondado != null)
+                    botaoArredondado.ShowLeftIndicator = selecionado;
                 item.FlatAppearance.BorderColor = selecionado
                     ? Color.FromArgb(185, 208, 242)
                     : Color.FromArgb(229, 231, 235);
