@@ -22,3 +22,5 @@ C:\Users\PC\OneDrive\Documentos\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stin
 C:\Users\PC\OneDrive\Documentos\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.csproj.CoreCompileInputs.cache
 C:\Users\PC\OneDrive\Documentos\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.exe
 C:\Users\PC\OneDrive\Documentos\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.pdb
+C:\Users\PC\OneDrive\Documentos\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.PresencaForm.resources
+C:\Users\PC\OneDrive\Documentos\GitHub\Stingray\Stingray\Stingray\obj\Debug\Stingray.ProfessoresForm.resources
