@@ -98,7 +98,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
             this.lblTitulo.Location = new System.Drawing.Point(13, 17);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(147, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(115, 25);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Professores";
             // 
@@ -217,7 +217,7 @@
             this.txtNome.Margin = new System.Windows.Forms.Padding(0);
             this.txtNome.Name = "txtNome";
             this.txtNome.ReadOnly = true;
-            this.txtNome.Size = new System.Drawing.Size(327, 18);
+            this.txtNome.Size = new System.Drawing.Size(327, 15);
             this.txtNome.TabIndex = 0;
             // 
             // pnlCref
@@ -240,7 +240,7 @@
             this.txtCref.Location = new System.Drawing.Point(0, 0);
             this.txtCref.Margin = new System.Windows.Forms.Padding(0);
             this.txtCref.Name = "txtCref";
-            this.txtCref.Size = new System.Drawing.Size(168, 19);
+            this.txtCref.Size = new System.Drawing.Size(168, 16);
             this.txtCref.TabIndex = 0;
             // 
             // pnlTelefone
@@ -264,7 +264,7 @@
             this.txtTelefone.Location = new System.Drawing.Point(0, 0);
             this.txtTelefone.Margin = new System.Windows.Forms.Padding(0);
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(179, 19);
+            this.txtTelefone.Size = new System.Drawing.Size(179, 16);
             this.txtTelefone.TabIndex = 1;
             // 
             // pnlDataNascimento
@@ -287,7 +287,7 @@
             this.txtDataNascimento.Location = new System.Drawing.Point(0, 0);
             this.txtDataNascimento.Margin = new System.Windows.Forms.Padding(0);
             this.txtDataNascimento.Name = "txtDataNascimento";
-            this.txtDataNascimento.Size = new System.Drawing.Size(179, 19);
+            this.txtDataNascimento.Size = new System.Drawing.Size(179, 16);
             this.txtDataNascimento.TabIndex = 1;
             // 
             // btnAdicionar
@@ -430,7 +430,7 @@
             // 
             // ProfessoresForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
             this.ClientSize = new System.Drawing.Size(1050, 660);
