@@ -16,6 +16,7 @@ namespace Stingray {
         public DashboardForm() {
             InitializeComponent();
             CentralizarLogo();
+            ConstruirDashboard();
             logoPanel.SizeChanged += delegate { CentralizarLogo(); };
             dashboardContentPanel.Paint += DashboardContentPanel_Paint;
 

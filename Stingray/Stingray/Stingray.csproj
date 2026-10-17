@@ -47,6 +47,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashboardForm.Visual.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MatriculasForm.Visual.cs">
       <SubType>Form</SubType>
     </Compile>
