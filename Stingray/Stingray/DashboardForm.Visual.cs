@@ -270,8 +270,12 @@ namespace Stingray
             }
 
             var link = DashCriarLink("Ver todos os horários");
+            link.AutoSize = false;
+            link.Size = new Size(180, 22);
+            link.TextAlign = ContentAlignment.MiddleLeft;
             link.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             link.Margin = new Padding(0, 4, 0, 0);
+            link.LinkClicked += AbrirHorarios;
             cartao.Controls.Add(link, 0, linha);
             cartao.SetColumnSpan(link, 2);
 
@@ -462,6 +466,14 @@ namespace Stingray
                 Cursor = Cursors.Hand,
                 Margin = new Padding(0)
             };
+        }
+
+        private void AbrirHorarios(object sender, EventArgs e)
+        {
+            using (AgendaAulasForm f = new AgendaAulasForm())
+            {
+                f.ShowDialog(this);
+            }
         }
     }
 }
