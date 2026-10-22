@@ -1,7 +1,6 @@
 ﻿namespace Stingray {
     partial class DashboardForm {
         private System.ComponentModel.IContainer components = null;
-
         private System.Windows.Forms.TableLayoutPanel mainLayout;
         private System.Windows.Forms.Panel sideBar;
         private System.Windows.Forms.TableLayoutPanel sideLayout;
@@ -10,11 +9,9 @@
         private System.Windows.Forms.Label lblTagline;
         private System.Windows.Forms.FlowLayoutPanel navPanel;
         private Stingray.RoundedButton btnDashboard;
-        private Stingray.RoundedButton btnAlunos;
         private Stingray.RoundedButton btnProfessores;
         private Stingray.RoundedButton btnTurmas;
-        private Stingray.RoundedButton btnHorarios;
-        private Stingray.RoundedButton btnMatriculas;
+        private Stingray.RoundedButton btnAlunos;
         private Stingray.RoundedButton btnPagamentos;
         private Stingray.RoundedButton btnPresenca;
         private Stingray.RoundedButton btnRelatorios;
@@ -25,6 +22,59 @@
         private System.Windows.Forms.Panel dashboardPagePanel;
         private System.Windows.Forms.Label lblDashboardTitle;
         private System.Windows.Forms.Panel dashboardContentPanel;
+        private System.Windows.Forms.TableLayoutPanel dashLayoutVisual;
+        private System.Windows.Forms.TableLayoutPanel dashCardsVisual;
+        private System.Windows.Forms.Panel dashCardAlunos;
+        private System.Windows.Forms.Panel dashCardProfessores;
+        private System.Windows.Forms.Panel dashCardTurmas;
+        private System.Windows.Forms.TableLayoutPanel dashKpiLayoutAlunos;
+        private System.Windows.Forms.TableLayoutPanel dashKpiLayoutProfessores;
+        private System.Windows.Forms.TableLayoutPanel dashKpiLayoutTurmas;
+        private System.Windows.Forms.TableLayoutPanel dashResumoGrupoAlunos;
+        private System.Windows.Forms.TableLayoutPanel dashResumoGrupoProfessores;
+        private System.Windows.Forms.TableLayoutPanel dashResumoGrupoTurmas;
+        private System.Windows.Forms.LinkLabel dashLinkAlunos;
+        private System.Windows.Forms.LinkLabel dashLinkProfessores;
+        private System.Windows.Forms.LinkLabel dashLinkTurmas;
+        private System.Windows.Forms.Label dashIconAlunos;
+        private System.Windows.Forms.Label dashIconProfessores;
+        private System.Windows.Forms.Label dashIconTurmas;
+        private System.Windows.Forms.Label dashValorAlunos;
+        private System.Windows.Forms.Label dashValorProfessores;
+        private System.Windows.Forms.Label dashValorTurmas;
+        private System.Windows.Forms.Label dashTituloAlunos;
+        private System.Windows.Forms.Label dashTituloProfessores;
+        private System.Windows.Forms.Label dashTituloTurmas;
+        private System.Windows.Forms.TableLayoutPanel dashBottomVisual;
+        private System.Windows.Forms.Panel dashCardAulas;
+        private System.Windows.Forms.TableLayoutPanel dashCabecalhoAulas;
+        private System.Windows.Forms.Label dashTituloAulas;
+        private System.Windows.Forms.Label dashIconeCalendario;
+        private System.Windows.Forms.TableLayoutPanel dashAulasTabela;
+        private System.Windows.Forms.TableLayoutPanel dashAulaInfo1;
+        private System.Windows.Forms.TableLayoutPanel dashAulaInfo2;
+        private System.Windows.Forms.TableLayoutPanel dashAulaInfo3;
+        private System.Windows.Forms.TableLayoutPanel dashAulaInfo4;
+        private System.Windows.Forms.Label dashAulaHora1;
+        private System.Windows.Forms.Label dashAulaNome1;
+        private System.Windows.Forms.Label dashAulaProfessor1;
+        private System.Windows.Forms.Label dashAulaHora2;
+        private System.Windows.Forms.Label dashAulaNome2;
+        private System.Windows.Forms.Label dashAulaProfessor2;
+        private System.Windows.Forms.Label dashAulaHora3;
+        private System.Windows.Forms.Label dashAulaNome3;
+        private System.Windows.Forms.Label dashAulaProfessor3;
+        private System.Windows.Forms.Label dashAulaHora4;
+        private System.Windows.Forms.Label dashAulaNome4;
+        private System.Windows.Forms.Label dashAulaProfessor4;
+        private System.Windows.Forms.Panel dashCardPagamentos;
+        private System.Windows.Forms.TableLayoutPanel dashCabecalhoPagamentos;
+        private System.Windows.Forms.Label dashTituloPagamentos;
+        private System.Windows.Forms.LinkLabel dashLinkPagamentos;
+        private System.Windows.Forms.DataGridView dashGradePagamentos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dashColAluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dashColVencimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dashColValor;
 
         protected override void Dispose(bool disposing) {
             if (disposing && components != null)
@@ -42,11 +92,9 @@
             this.lblTagline = new System.Windows.Forms.Label();
             this.navPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDashboard = new Stingray.RoundedButton();
-            this.btnAlunos = new Stingray.RoundedButton();
             this.btnProfessores = new Stingray.RoundedButton();
             this.btnTurmas = new Stingray.RoundedButton();
-            this.btnHorarios = new Stingray.RoundedButton();
-            this.btnMatriculas = new Stingray.RoundedButton();
+            this.btnAlunos = new Stingray.RoundedButton();
             this.btnPagamentos = new Stingray.RoundedButton();
             this.btnPresenca = new Stingray.RoundedButton();
             this.btnRelatorios = new Stingray.RoundedButton();
@@ -66,12 +114,12 @@
             this.contentHost.SuspendLayout();
             this.dashboardPagePanel.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // mainLayout
-            // 
+            //
             this.mainLayout.ColumnCount = 2;
-            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82F));
+            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
+            this.mainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainLayout.Controls.Add(this.sideBar, 0, 0);
             this.mainLayout.Controls.Add(this.contentHost, 1, 0);
             this.mainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,9 +128,9 @@
             this.mainLayout.RowCount = 1;
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainLayout.TabIndex = 0;
-            // 
+            //
             // sideBar
-            // 
+            //
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
             this.sideBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.sideBar.Controls.Add(this.sideLayout);
@@ -91,9 +139,9 @@
             this.sideBar.Name = "sideBar";
             this.sideBar.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.sideBar.TabIndex = 0;
-            // 
+            //
             // sideLayout
-            // 
+            //
             this.sideLayout.ColumnCount = 1;
             this.sideLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.sideLayout.Controls.Add(this.logoPanel, 0, 0);
@@ -108,9 +156,9 @@
             this.sideLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72F));
             this.sideLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.sideLayout.TabIndex = 0;
-            // 
+            //
             // logoPanel
-            // 
+            //
             this.logoPanel.BackColor = System.Drawing.Color.White;
             this.logoPanel.Controls.Add(this.lblBrand);
             this.logoPanel.Controls.Add(this.lblTagline);
@@ -118,41 +166,39 @@
             this.logoPanel.Margin = new System.Windows.Forms.Padding(0);
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.TabIndex = 0;
-            // 
+            //
             // lblBrand
-            // 
+            //
             this.lblBrand.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             this.lblBrand.AutoSize = true;
             this.lblBrand.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBrand.ForeColor = System.Drawing.Color.FromArgb(25, 86, 196);
-            this.lblBrand.Location = new System.Drawing.Point(0, 40);
+            this.lblBrand.Location = new System.Drawing.Point(56, 40);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(119, 41);
             this.lblBrand.TabIndex = 0;
             this.lblBrand.Text = "AquaFit";
-            // 
+            //
             // lblTagline
-            // 
+            //
             this.lblTagline.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
             this.lblTagline.AutoSize = true;
             this.lblTagline.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTagline.ForeColor = System.Drawing.Color.FromArgb(91, 125, 189);
-            this.lblTagline.Location = new System.Drawing.Point(0, 83);
+            this.lblTagline.Location = new System.Drawing.Point(68, 83);
             this.lblTagline.Name = "lblTagline";
             this.lblTagline.Size = new System.Drawing.Size(91, 12);
             this.lblTagline.TabIndex = 1;
             this.lblTagline.Text = "ESCOLA DE NATAÇÃO";
-            // 
+            //
             // navPanel
-            // 
+            //
             this.navPanel.AutoScroll = true;
             this.navPanel.BackColor = System.Drawing.Color.White;
             this.navPanel.Controls.Add(this.btnDashboard);
-            this.navPanel.Controls.Add(this.btnAlunos);
             this.navPanel.Controls.Add(this.btnProfessores);
             this.navPanel.Controls.Add(this.btnTurmas);
-            this.navPanel.Controls.Add(this.btnHorarios);
-            this.navPanel.Controls.Add(this.btnMatriculas);
+            this.navPanel.Controls.Add(this.btnAlunos);
             this.navPanel.Controls.Add(this.btnPagamentos);
             this.navPanel.Controls.Add(this.btnPresenca);
             this.navPanel.Controls.Add(this.btnRelatorios);
@@ -165,7 +211,7 @@
             this.navPanel.Padding = new System.Windows.Forms.Padding(12, 6, 12, 0);
             this.navPanel.WrapContents = false;
             this.navPanel.TabIndex = 1;
-            // 
+            //
             // navigation buttons
             //
             this.btnDashboard.BackColor = System.Drawing.Color.White;
@@ -185,23 +231,6 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnAlunos.BackColor = System.Drawing.Color.White;
-            this.btnAlunos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlunos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
-            this.btnAlunos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(219, 232, 253);
-            this.btnAlunos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(234, 242, 255);
-            this.btnAlunos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlunos.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlunos.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
-            this.btnAlunos.Margin = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.btnAlunos.Name = "btnAlunos";
-            this.btnAlunos.CornerRadius = 7;
-            this.btnAlunos.Size = new System.Drawing.Size(236, 37);
-            this.btnAlunos.TabIndex = 1;
-            this.btnAlunos.Text = "Alunos";
-            this.btnAlunos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlunos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnAlunos.UseVisualStyleBackColor = false;
             this.btnProfessores.BackColor = System.Drawing.Color.White;
             this.btnProfessores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProfessores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
@@ -214,7 +243,7 @@
             this.btnProfessores.Name = "btnProfessores";
             this.btnProfessores.CornerRadius = 7;
             this.btnProfessores.Size = new System.Drawing.Size(236, 37);
-            this.btnProfessores.TabIndex = 2;
+            this.btnProfessores.TabIndex = 1;
             this.btnProfessores.Text = "Professores";
             this.btnProfessores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProfessores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -231,45 +260,28 @@
             this.btnTurmas.Name = "btnTurmas";
             this.btnTurmas.CornerRadius = 7;
             this.btnTurmas.Size = new System.Drawing.Size(236, 37);
-            this.btnTurmas.TabIndex = 3;
+            this.btnTurmas.TabIndex = 2;
             this.btnTurmas.Text = "Turmas";
             this.btnTurmas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTurmas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnTurmas.UseVisualStyleBackColor = false;
-            this.btnHorarios.BackColor = System.Drawing.Color.White;
-            this.btnHorarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHorarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
-            this.btnHorarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(219, 232, 253);
-            this.btnHorarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(234, 242, 255);
-            this.btnHorarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHorarios.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHorarios.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
-            this.btnHorarios.Margin = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.btnHorarios.Name = "btnHorarios";
-            this.btnHorarios.CornerRadius = 7;
-            this.btnHorarios.Size = new System.Drawing.Size(236, 37);
-            this.btnHorarios.TabIndex = 4;
-            this.btnHorarios.Text = "Horários";
-            this.btnHorarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHorarios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHorarios.UseVisualStyleBackColor = false;
-            this.btnMatriculas.BackColor = System.Drawing.Color.White;
-            this.btnMatriculas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMatriculas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
-            this.btnMatriculas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(219, 232, 253);
-            this.btnMatriculas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(234, 242, 255);
-            this.btnMatriculas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMatriculas.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMatriculas.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
-            this.btnMatriculas.Margin = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.btnMatriculas.Name = "btnMatriculas";
-            this.btnMatriculas.CornerRadius = 7;
-            this.btnMatriculas.Size = new System.Drawing.Size(236, 37);
-            this.btnMatriculas.TabIndex = 5;
-            this.btnMatriculas.Text = "Matrículas";
-            this.btnMatriculas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMatriculas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMatriculas.UseVisualStyleBackColor = false;
+            this.btnAlunos.BackColor = System.Drawing.Color.White;
+            this.btnAlunos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlunos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
+            this.btnAlunos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(219, 232, 253);
+            this.btnAlunos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(234, 242, 255);
+            this.btnAlunos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlunos.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlunos.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            this.btnAlunos.Margin = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.btnAlunos.Name = "btnAlunos";
+            this.btnAlunos.CornerRadius = 7;
+            this.btnAlunos.Size = new System.Drawing.Size(236, 37);
+            this.btnAlunos.TabIndex = 3;
+            this.btnAlunos.Text = "Alunos";
+            this.btnAlunos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlunos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnAlunos.UseVisualStyleBackColor = false;
             this.btnPagamentos.BackColor = System.Drawing.Color.White;
             this.btnPagamentos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPagamentos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
@@ -282,7 +294,7 @@
             this.btnPagamentos.Name = "btnPagamentos";
             this.btnPagamentos.CornerRadius = 7;
             this.btnPagamentos.Size = new System.Drawing.Size(236, 37);
-            this.btnPagamentos.TabIndex = 6;
+            this.btnPagamentos.TabIndex = 4;
             this.btnPagamentos.Text = "Pagamentos";
             this.btnPagamentos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagamentos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -299,7 +311,7 @@
             this.btnPresenca.Name = "btnPresenca";
             this.btnPresenca.CornerRadius = 7;
             this.btnPresenca.Size = new System.Drawing.Size(236, 37);
-            this.btnPresenca.TabIndex = 7;
+            this.btnPresenca.TabIndex = 5;
             this.btnPresenca.Text = "Presença";
             this.btnPresenca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPresenca.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -316,7 +328,7 @@
             this.btnRelatorios.Name = "btnRelatorios";
             this.btnRelatorios.CornerRadius = 7;
             this.btnRelatorios.Size = new System.Drawing.Size(236, 37);
-            this.btnRelatorios.TabIndex = 8;
+            this.btnRelatorios.TabIndex = 6;
             this.btnRelatorios.Text = "Relatórios";
             this.btnRelatorios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRelatorios.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -333,7 +345,7 @@
             this.btnConfiguracoes.Name = "btnConfiguracoes";
             this.btnConfiguracoes.CornerRadius = 7;
             this.btnConfiguracoes.Size = new System.Drawing.Size(236, 37);
-            this.btnConfiguracoes.TabIndex = 9;
+            this.btnConfiguracoes.TabIndex = 7;
             this.btnConfiguracoes.Text = "Configurações";
             this.btnConfiguracoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfiguracoes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -344,9 +356,9 @@
             this.btnPagamentos.BackColor = System.Drawing.Color.White;
             this.btnPagamentos.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
             this.btnPagamentos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(229, 231, 235);
-            // 
+            //
             // footerPanel
-            // 
+            //
             this.footerPanel.BackColor = System.Drawing.Color.White;
             this.footerPanel.Controls.Add(this.btnSair);
             this.footerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -354,9 +366,9 @@
             this.footerPanel.Name = "footerPanel";
             this.footerPanel.Padding = new System.Windows.Forms.Padding(9, 0, 9, 9);
             this.footerPanel.TabIndex = 2;
-            // 
+            //
             // btnSair
-            // 
+            //
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -376,9 +388,9 @@
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnSair.UseVisualStyleBackColor = false;
-            // 
+            //
             // contentHost
-            // 
+            //
             this.contentHost.BackColor = System.Drawing.Color.FromArgb(247, 249, 252);
             this.contentHost.Controls.Add(this.dashboardPagePanel);
             this.contentHost.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -391,6 +403,7 @@
             this.dashboardPagePanel.BackColor = System.Drawing.Color.FromArgb(247, 249, 252);
             this.dashboardPagePanel.Controls.Add(this.dashboardContentPanel);
             this.dashboardPagePanel.Controls.Add(this.lblDashboardTitle);
+            this.dashboardPagePanel.Padding = new System.Windows.Forms.Padding(14, 64, 14, 14);
             this.dashboardPagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboardPagePanel.Margin = new System.Windows.Forms.Padding(0);
             this.dashboardPagePanel.Name = "dashboardPagePanel";
@@ -409,24 +422,520 @@
             //
             // dashboardContentPanel
             //
-            this.dashboardContentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dashboardContentPanel.BackColor = System.Drawing.Color.White;
             this.dashboardContentPanel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dashboardContentPanel.Location = new System.Drawing.Point(14, 64);
+            this.dashboardContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardContentPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dashboardContentPanel.Location = new System.Drawing.Point(0, 0);
             this.dashboardContentPanel.Name = "dashboardContentPanel";
             this.dashboardContentPanel.Size = new System.Drawing.Size(1018, 582);
             this.dashboardContentPanel.TabIndex = 1;
-
-            // 
+            //
+            // dashLayoutVisual
+            //
+            this.dashLayoutVisual = new System.Windows.Forms.TableLayoutPanel();
+            this.dashCardsVisual = new System.Windows.Forms.TableLayoutPanel();
+            this.dashCardAlunos = new System.Windows.Forms.Panel();
+            this.dashCardProfessores = new System.Windows.Forms.Panel();
+            this.dashCardTurmas = new System.Windows.Forms.Panel();
+            this.dashKpiLayoutAlunos = new System.Windows.Forms.TableLayoutPanel();
+            this.dashKpiLayoutProfessores = new System.Windows.Forms.TableLayoutPanel();
+            this.dashKpiLayoutTurmas = new System.Windows.Forms.TableLayoutPanel();
+            this.dashResumoGrupoAlunos = new System.Windows.Forms.TableLayoutPanel();
+            this.dashResumoGrupoProfessores = new System.Windows.Forms.TableLayoutPanel();
+            this.dashResumoGrupoTurmas = new System.Windows.Forms.TableLayoutPanel();
+            this.dashLinkAlunos = new System.Windows.Forms.LinkLabel();
+            this.dashLinkProfessores = new System.Windows.Forms.LinkLabel();
+            this.dashLinkTurmas = new System.Windows.Forms.LinkLabel();
+            this.dashIconAlunos = new System.Windows.Forms.Label();
+            this.dashIconProfessores = new System.Windows.Forms.Label();
+            this.dashIconTurmas = new System.Windows.Forms.Label();
+            this.dashValorAlunos = new System.Windows.Forms.Label();
+            this.dashValorProfessores = new System.Windows.Forms.Label();
+            this.dashValorTurmas = new System.Windows.Forms.Label();
+            this.dashTituloAlunos = new System.Windows.Forms.Label();
+            this.dashTituloProfessores = new System.Windows.Forms.Label();
+            this.dashTituloTurmas = new System.Windows.Forms.Label();
+            this.dashBottomVisual = new System.Windows.Forms.TableLayoutPanel();
+            this.dashCardAulas = new System.Windows.Forms.Panel();
+            this.dashCabecalhoAulas = new System.Windows.Forms.TableLayoutPanel();
+            this.dashTituloAulas = new System.Windows.Forms.Label();
+            this.dashIconeCalendario = new System.Windows.Forms.Label();
+            this.dashAulasTabela = new System.Windows.Forms.TableLayoutPanel();
+            this.dashAulaInfo1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dashAulaInfo2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dashAulaInfo3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dashAulaInfo4 = new System.Windows.Forms.TableLayoutPanel();
+            this.dashAulaHora1 = new System.Windows.Forms.Label(); this.dashAulaNome1 = new System.Windows.Forms.Label(); this.dashAulaProfessor1 = new System.Windows.Forms.Label();
+            this.dashAulaHora2 = new System.Windows.Forms.Label(); this.dashAulaNome2 = new System.Windows.Forms.Label(); this.dashAulaProfessor2 = new System.Windows.Forms.Label();
+            this.dashAulaHora3 = new System.Windows.Forms.Label(); this.dashAulaNome3 = new System.Windows.Forms.Label(); this.dashAulaProfessor3 = new System.Windows.Forms.Label();
+            this.dashAulaHora4 = new System.Windows.Forms.Label(); this.dashAulaNome4 = new System.Windows.Forms.Label(); this.dashAulaProfessor4 = new System.Windows.Forms.Label();
+            this.dashCardPagamentos = new System.Windows.Forms.Panel();
+            this.dashCabecalhoPagamentos = new System.Windows.Forms.TableLayoutPanel();
+            this.dashTituloPagamentos = new System.Windows.Forms.Label();
+            this.dashLinkPagamentos = new System.Windows.Forms.LinkLabel();
+            this.dashGradePagamentos = new System.Windows.Forms.DataGridView();
+            this.dashColAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dashColVencimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dashColValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dashGradePagamentos)).BeginInit();
+            this.dashboardContentPanel.Controls.Add(this.dashLayoutVisual);
+            //
+            // dashLayoutVisual
+            //
+            this.dashLayoutVisual.BackColor = System.Drawing.Color.FromArgb(250, 251, 252);
+            this.dashLayoutVisual.ColumnCount = 1;
+            this.dashLayoutVisual.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashLayoutVisual.Controls.Add(this.dashCardsVisual, 0, 0);
+            this.dashLayoutVisual.Controls.Add(this.dashBottomVisual, 0, 1);
+            this.dashLayoutVisual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashLayoutVisual.Margin = new System.Windows.Forms.Padding(0);
+            this.dashLayoutVisual.Name = "dashLayoutVisual";
+            this.dashLayoutVisual.Padding = new System.Windows.Forms.Padding(14, 15, 14, 14);
+            this.dashLayoutVisual.RowCount = 2;
+            this.dashLayoutVisual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.dashLayoutVisual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashLayoutVisual.TabIndex = 0;
+            //
+            // Summary cards
+            //
+            this.dashCardsVisual.ColumnCount = 3;
+            this.dashCardsVisual.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.333F));
+            this.dashCardsVisual.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.333F));
+            this.dashCardsVisual.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.334F));
+            this.dashCardsVisual.Controls.Add(this.dashCardAlunos, 0, 0);
+            this.dashCardsVisual.Controls.Add(this.dashCardProfessores, 1, 0);
+            this.dashCardsVisual.Controls.Add(this.dashCardTurmas, 2, 0);
+            this.dashCardsVisual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashCardsVisual.Margin = new System.Windows.Forms.Padding(0, 0, 0, 12);
+            this.dashCardsVisual.Name = "dashCardsVisual";
+            this.dashCardsVisual.RowCount = 1;
+            this.dashCardsVisual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashCardsVisual.TabIndex = 0;
+            this.dashCardAlunos.BackColor = System.Drawing.Color.White;
+            this.dashCardAlunos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dashCardAlunos.Padding = new System.Windows.Forms.Padding(2);
+            this.dashCardAlunos.Paint += new System.Windows.Forms.PaintEventHandler(this.DashboardCard_Paint);
+            this.dashCardAlunos.Controls.Add(this.dashKpiLayoutAlunos);
+            this.dashCardAlunos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashCardAlunos.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
+            this.dashCardAlunos.Name = "dashCardAlunos";
+            this.dashCardAlunos.TabIndex = 0;
+            this.dashKpiLayoutAlunos.BackColor = System.Drawing.Color.White;
+            this.dashKpiLayoutAlunos.ColumnCount = 1;
+            this.dashKpiLayoutAlunos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashKpiLayoutAlunos.Controls.Add(this.dashResumoGrupoAlunos, 0, 0);
+            this.dashKpiLayoutAlunos.Controls.Add(this.dashLinkAlunos, 0, 1);
+            this.dashKpiLayoutAlunos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashKpiLayoutAlunos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashKpiLayoutAlunos.Name = "dashKpiLayoutAlunos";
+            this.dashKpiLayoutAlunos.Padding = new System.Windows.Forms.Padding(8, 30, 8, 2);
+            this.dashKpiLayoutAlunos.RowCount = 2;
+            this.dashKpiLayoutAlunos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72F));
+            this.dashKpiLayoutAlunos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.dashKpiLayoutAlunos.TabIndex = 0;
+            this.dashResumoGrupoAlunos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dashResumoGrupoAlunos.AutoSize = true;
+            this.dashResumoGrupoAlunos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dashResumoGrupoAlunos.BackColor = System.Drawing.Color.White;
+            this.dashResumoGrupoAlunos.ColumnCount = 2;
+            this.dashResumoGrupoAlunos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoAlunos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoAlunos.Controls.Add(this.dashIconAlunos, 0, 0);
+            this.dashResumoGrupoAlunos.SetRowSpan(this.dashIconAlunos, 2);
+            this.dashResumoGrupoAlunos.Controls.Add(this.dashValorAlunos, 1, 0);
+            this.dashResumoGrupoAlunos.Controls.Add(this.dashTituloAlunos, 1, 1);
+            this.dashResumoGrupoAlunos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashResumoGrupoAlunos.Name = "dashResumoGrupoAlunos";
+            this.dashResumoGrupoAlunos.RowCount = 2;
+            this.dashResumoGrupoAlunos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoAlunos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoAlunos.TabIndex = 0;
+            this.dashIconAlunos.AutoSize = false;
+            this.dashIconAlunos.BackColor = System.Drawing.Color.White;
+            this.dashIconAlunos.ForeColor = System.Drawing.Color.FromArgb(25, 86, 196);
+            this.dashIconAlunos.Font = new System.Drawing.Font("Segoe MDL2 Assets", 26F);
+            this.dashIconAlunos.Margin = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.dashIconAlunos.Name = "dashIconAlunos";
+            this.dashIconAlunos.Size = new System.Drawing.Size(43, 49);
+            this.dashIconAlunos.TabIndex = 0;
+            this.dashIconAlunos.Text = "\uE7BE";
+            this.dashIconAlunos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dashValorAlunos.AutoSize = true;
+            this.dashValorAlunos.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.dashValorAlunos.ForeColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashValorAlunos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashValorAlunos.Name = "dashValorAlunos";
+            this.dashValorAlunos.Size = new System.Drawing.Size(28, 37);
+            this.dashValorAlunos.TabIndex = 1;
+            this.dashValorAlunos.Text = "9";
+            this.dashTituloAlunos.AutoSize = true;
+            this.dashTituloAlunos.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dashTituloAlunos.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.dashTituloAlunos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashTituloAlunos.Name = "dashTituloAlunos";
+            this.dashTituloAlunos.Size = new System.Drawing.Size(43, 15);
+            this.dashTituloAlunos.TabIndex = 2;
+            this.dashTituloAlunos.Text = "Alunos";
+            this.dashLinkAlunos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dashLinkAlunos.AutoSize = true;
+            this.dashLinkAlunos.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.dashLinkAlunos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.dashLinkAlunos.LinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkAlunos.ActiveLinkColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashLinkAlunos.VisitedLinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkAlunos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashLinkAlunos.Name = "dashLinkAlunos";
+            this.dashLinkAlunos.TabIndex = 3;
+            this.dashLinkAlunos.Text = "Ver detalhes";
+            this.dashLinkAlunos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashCardProfessores.BackColor = System.Drawing.Color.White;
+            this.dashCardProfessores.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dashCardProfessores.Padding = new System.Windows.Forms.Padding(2);
+            this.dashCardProfessores.Paint += new System.Windows.Forms.PaintEventHandler(this.DashboardCard_Paint);
+            this.dashCardProfessores.Controls.Add(this.dashKpiLayoutProfessores);
+            this.dashCardProfessores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashCardProfessores.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.dashCardProfessores.Name = "dashCardProfessores";
+            this.dashCardProfessores.TabIndex = 1;
+            this.dashKpiLayoutProfessores.BackColor = System.Drawing.Color.White;
+            this.dashKpiLayoutProfessores.ColumnCount = 1;
+            this.dashKpiLayoutProfessores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashKpiLayoutProfessores.Controls.Add(this.dashResumoGrupoProfessores, 0, 0);
+            this.dashKpiLayoutProfessores.Controls.Add(this.dashLinkProfessores, 0, 1);
+            this.dashKpiLayoutProfessores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashKpiLayoutProfessores.Margin = new System.Windows.Forms.Padding(0);
+            this.dashKpiLayoutProfessores.Name = "dashKpiLayoutProfessores";
+            this.dashKpiLayoutProfessores.Padding = new System.Windows.Forms.Padding(8, 30, 8, 2);
+            this.dashKpiLayoutProfessores.RowCount = 2;
+            this.dashKpiLayoutProfessores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72F));
+            this.dashKpiLayoutProfessores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.dashKpiLayoutProfessores.TabIndex = 0;
+            this.dashResumoGrupoProfessores.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dashResumoGrupoProfessores.AutoSize = true;
+            this.dashResumoGrupoProfessores.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dashResumoGrupoProfessores.BackColor = System.Drawing.Color.White;
+            this.dashResumoGrupoProfessores.ColumnCount = 2;
+            this.dashResumoGrupoProfessores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoProfessores.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoProfessores.Controls.Add(this.dashIconProfessores, 0, 0);
+            this.dashResumoGrupoProfessores.SetRowSpan(this.dashIconProfessores, 2);
+            this.dashResumoGrupoProfessores.Controls.Add(this.dashValorProfessores, 1, 0);
+            this.dashResumoGrupoProfessores.Controls.Add(this.dashTituloProfessores, 1, 1);
+            this.dashResumoGrupoProfessores.Margin = new System.Windows.Forms.Padding(0);
+            this.dashResumoGrupoProfessores.Name = "dashResumoGrupoProfessores";
+            this.dashResumoGrupoProfessores.RowCount = 2;
+            this.dashResumoGrupoProfessores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoProfessores.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoProfessores.TabIndex = 0;
+            this.dashIconProfessores.AutoSize = false;
+            this.dashIconProfessores.BackColor = System.Drawing.Color.White;
+            this.dashIconProfessores.ForeColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashIconProfessores.Font = new System.Drawing.Font("Segoe MDL2 Assets", 26F);
+            this.dashIconProfessores.Margin = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.dashIconProfessores.Name = "dashIconProfessores";
+            this.dashIconProfessores.Size = new System.Drawing.Size(43, 49);
+            this.dashIconProfessores.TabIndex = 0;
+            this.dashIconProfessores.Text = "\uE716";
+            this.dashIconProfessores.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dashValorProfessores.AutoSize = true;
+            this.dashValorProfessores.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.dashValorProfessores.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.dashValorProfessores.Margin = new System.Windows.Forms.Padding(0);
+            this.dashValorProfessores.Name = "dashValorProfessores";
+            this.dashValorProfessores.Size = new System.Drawing.Size(28, 37);
+            this.dashValorProfessores.TabIndex = 1;
+            this.dashValorProfessores.Text = "7";
+            this.dashTituloProfessores.AutoSize = true;
+            this.dashTituloProfessores.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dashTituloProfessores.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.dashTituloProfessores.Margin = new System.Windows.Forms.Padding(0);
+            this.dashTituloProfessores.Name = "dashTituloProfessores";
+            this.dashTituloProfessores.Size = new System.Drawing.Size(70, 15);
+            this.dashTituloProfessores.TabIndex = 2;
+            this.dashTituloProfessores.Text = "Professores";
+            this.dashLinkProfessores.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dashLinkProfessores.AutoSize = true;
+            this.dashLinkProfessores.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.dashLinkProfessores.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.dashLinkProfessores.LinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkProfessores.ActiveLinkColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashLinkProfessores.VisitedLinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkProfessores.Margin = new System.Windows.Forms.Padding(0);
+            this.dashLinkProfessores.Name = "dashLinkProfessores";
+            this.dashLinkProfessores.TabIndex = 3;
+            this.dashLinkProfessores.Text = "Ver detalhes";
+            this.dashLinkProfessores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashCardTurmas.BackColor = System.Drawing.Color.White;
+            this.dashCardTurmas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dashCardTurmas.Padding = new System.Windows.Forms.Padding(2);
+            this.dashCardTurmas.Paint += new System.Windows.Forms.PaintEventHandler(this.DashboardCard_Paint);
+            this.dashCardTurmas.Controls.Add(this.dashKpiLayoutTurmas);
+            this.dashCardTurmas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashCardTurmas.Margin = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.dashCardTurmas.Name = "dashCardTurmas";
+            this.dashCardTurmas.TabIndex = 2;
+            this.dashKpiLayoutTurmas.BackColor = System.Drawing.Color.White;
+            this.dashKpiLayoutTurmas.ColumnCount = 1;
+            this.dashKpiLayoutTurmas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashKpiLayoutTurmas.Controls.Add(this.dashResumoGrupoTurmas, 0, 0);
+            this.dashKpiLayoutTurmas.Controls.Add(this.dashLinkTurmas, 0, 1);
+            this.dashKpiLayoutTurmas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashKpiLayoutTurmas.Margin = new System.Windows.Forms.Padding(0);
+            this.dashKpiLayoutTurmas.Name = "dashKpiLayoutTurmas";
+            this.dashKpiLayoutTurmas.Padding = new System.Windows.Forms.Padding(8, 30, 8, 2);
+            this.dashKpiLayoutTurmas.RowCount = 2;
+            this.dashKpiLayoutTurmas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72F));
+            this.dashKpiLayoutTurmas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
+            this.dashKpiLayoutTurmas.TabIndex = 0;
+            this.dashResumoGrupoTurmas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dashResumoGrupoTurmas.AutoSize = true;
+            this.dashResumoGrupoTurmas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.dashResumoGrupoTurmas.BackColor = System.Drawing.Color.White;
+            this.dashResumoGrupoTurmas.ColumnCount = 2;
+            this.dashResumoGrupoTurmas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoTurmas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoTurmas.Controls.Add(this.dashIconTurmas, 0, 0);
+            this.dashResumoGrupoTurmas.SetRowSpan(this.dashIconTurmas, 2);
+            this.dashResumoGrupoTurmas.Controls.Add(this.dashValorTurmas, 1, 0);
+            this.dashResumoGrupoTurmas.Controls.Add(this.dashTituloTurmas, 1, 1);
+            this.dashResumoGrupoTurmas.Margin = new System.Windows.Forms.Padding(0);
+            this.dashResumoGrupoTurmas.Name = "dashResumoGrupoTurmas";
+            this.dashResumoGrupoTurmas.RowCount = 2;
+            this.dashResumoGrupoTurmas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoTurmas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashResumoGrupoTurmas.TabIndex = 0;
+            this.dashIconTurmas.AutoSize = false;
+            this.dashIconTurmas.BackColor = System.Drawing.Color.White;
+            this.dashIconTurmas.ForeColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashIconTurmas.Font = new System.Drawing.Font("Segoe MDL2 Assets", 26F);
+            this.dashIconTurmas.Margin = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.dashIconTurmas.Name = "dashIconTurmas";
+            this.dashIconTurmas.Size = new System.Drawing.Size(43, 49);
+            this.dashIconTurmas.TabIndex = 0;
+            this.dashIconTurmas.Text = "\uE716";
+            this.dashIconTurmas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dashValorTurmas.AutoSize = true;
+            this.dashValorTurmas.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.dashValorTurmas.ForeColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            this.dashValorTurmas.Margin = new System.Windows.Forms.Padding(0);
+            this.dashValorTurmas.Name = "dashValorTurmas";
+            this.dashValorTurmas.Size = new System.Drawing.Size(28, 37);
+            this.dashValorTurmas.TabIndex = 1;
+            this.dashValorTurmas.Text = "7";
+            this.dashTituloTurmas.AutoSize = true;
+            this.dashTituloTurmas.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dashTituloTurmas.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.dashTituloTurmas.Margin = new System.Windows.Forms.Padding(0);
+            this.dashTituloTurmas.Name = "dashTituloTurmas";
+            this.dashTituloTurmas.Size = new System.Drawing.Size(48, 15);
+            this.dashTituloTurmas.TabIndex = 2;
+            this.dashTituloTurmas.Text = "Turmas";
+            this.dashLinkTurmas.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dashLinkTurmas.AutoSize = true;
+            this.dashLinkTurmas.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.dashLinkTurmas.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.dashLinkTurmas.LinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkTurmas.ActiveLinkColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashLinkTurmas.VisitedLinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkTurmas.Margin = new System.Windows.Forms.Padding(0);
+            this.dashLinkTurmas.Name = "dashLinkTurmas";
+            this.dashLinkTurmas.TabIndex = 3;
+            this.dashLinkTurmas.Text = "Ver detalhes";
+            this.dashLinkTurmas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashBottomVisual.ColumnCount = 2;
+            this.dashBottomVisual.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.333F));
+            this.dashBottomVisual.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.667F));
+            this.dashBottomVisual.Controls.Add(this.dashCardAulas, 0, 0);
+            this.dashBottomVisual.Controls.Add(this.dashCardPagamentos, 1, 0);
+            this.dashBottomVisual.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashBottomVisual.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.dashBottomVisual.Name = "dashBottomVisual";
+            this.dashBottomVisual.RowCount = 1;
+            this.dashBottomVisual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashBottomVisual.TabIndex = 1;
+            this.dashCardAulas.BackColor = System.Drawing.Color.White;
+            this.dashCardAulas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dashCardAulas.Paint += new System.Windows.Forms.PaintEventHandler(this.DashboardCard_Paint);
+            this.dashCardAulas.Controls.Add(this.dashAulasTabela);
+            this.dashCardAulas.Controls.Add(this.dashCabecalhoAulas);
+            this.dashCardAulas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashCardAulas.Margin = new System.Windows.Forms.Padding(0, 0, 8, 0);
+            this.dashCardAulas.Name = "dashCardAulas";
+            this.dashCardAulas.Padding = new System.Windows.Forms.Padding(20, 16, 20, 12);
+            this.dashCardAulas.TabIndex = 0;
+            this.dashCabecalhoAulas.BackColor = System.Drawing.Color.White;
+            this.dashCabecalhoAulas.ColumnCount = 2;
+            this.dashCabecalhoAulas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashCabecalhoAulas.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashCabecalhoAulas.Controls.Add(this.dashTituloAulas, 0, 0);
+            this.dashCabecalhoAulas.Controls.Add(this.dashIconeCalendario, 1, 0);
+            this.dashCabecalhoAulas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dashCabecalhoAulas.Height = 26;
+            this.dashCabecalhoAulas.Margin = new System.Windows.Forms.Padding(0);
+            this.dashCabecalhoAulas.Name = "dashCabecalhoAulas";
+            this.dashCabecalhoAulas.RowCount = 1;
+            this.dashCabecalhoAulas.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashCabecalhoAulas.TabIndex = 0;
+            this.dashTituloAulas.AutoSize = true;
+            this.dashTituloAulas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dashTituloAulas.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.dashTituloAulas.ForeColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashTituloAulas.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.dashTituloAulas.Name = "dashTituloAulas";
+            this.dashTituloAulas.Size = new System.Drawing.Size(116, 19);
+            this.dashTituloAulas.TabIndex = 0;
+            this.dashTituloAulas.Text = "Próximas aulas";
+            this.dashIconeCalendario.AutoSize = false;
+            this.dashIconeCalendario.Font = new System.Drawing.Font("Segoe MDL2 Assets", 14F);
+            this.dashIconeCalendario.ForeColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashIconeCalendario.Margin = new System.Windows.Forms.Padding(0);
+            this.dashIconeCalendario.Name = "dashIconeCalendario";
+            this.dashIconeCalendario.Size = new System.Drawing.Size(22, 22);
+            this.dashIconeCalendario.TabIndex = 1;
+            this.dashIconeCalendario.Text = "\uE787";
+            this.dashIconeCalendario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.dashAulasTabela.ColumnCount = 2;
+            this.dashAulasTabela.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.dashAulasTabela.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashAulasTabela.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dashAulasTabela.Height = 280;
+            this.dashAulasTabela.Margin = new System.Windows.Forms.Padding(0);
+            this.dashAulasTabela.Name = "dashAulasTabela";
+            this.dashAulasTabela.RowCount = 4;
+            this.dashAulasTabela.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.dashAulasTabela.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.dashAulasTabela.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.dashAulasTabela.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.dashAulasTabela.TabIndex = 1;
+            this.dashAulasTabela.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.DashAulasTabela_CellPaint);
+            this.dashAulaHora1.Text = "08:00"; this.dashAulaNome1.Text = "Hidroginástica"; this.dashAulaProfessor1.Text = "Prof. Lucas Almeida";
+            this.dashAulaHora2.Text = "09:00"; this.dashAulaNome2.Text = "Natação Iniciante"; this.dashAulaProfessor2.Text = "Prof. Ana Paula Costa";
+            this.dashAulaHora3.Text = "10:00"; this.dashAulaNome3.Text = "Natação Intermediário"; this.dashAulaProfessor3.Text = "Prof. Gabriel Silva";
+            this.dashAulaHora4.Text = "14:00"; this.dashAulaNome4.Text = "Natação Avançado"; this.dashAulaProfessor4.Text = "Prof. Felipe Rocha";
+            this.dashAulaHora1.ForeColor = this.dashAulaHora2.ForeColor = this.dashAulaHora3.ForeColor = this.dashAulaHora4.ForeColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashAulaHora1.Font = this.dashAulaHora2.Font = this.dashAulaHora3.Font = this.dashAulaHora4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dashAulaNome1.Font = this.dashAulaNome2.Font = this.dashAulaNome3.Font = this.dashAulaNome4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F);
+            this.dashAulaNome1.ForeColor = this.dashAulaNome2.ForeColor = this.dashAulaNome3.ForeColor = this.dashAulaNome4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.dashAulaProfessor1.Font = this.dashAulaProfessor2.Font = this.dashAulaProfessor3.Font = this.dashAulaProfessor4.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.dashAulaProfessor1.ForeColor = this.dashAulaProfessor2.ForeColor = this.dashAulaProfessor3.ForeColor = this.dashAulaProfessor4.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.dashAulaHora1.Dock = this.dashAulaHora2.Dock = this.dashAulaHora3.Dock = this.dashAulaHora4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashAulaHora1.TextAlign = this.dashAulaHora2.TextAlign = this.dashAulaHora3.TextAlign = this.dashAulaHora4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dashAulaHora1.Margin = this.dashAulaHora2.Margin = this.dashAulaHora3.Margin = this.dashAulaHora4.Margin = new System.Windows.Forms.Padding(0);
+            this.dashAulaNome1.AutoSize = this.dashAulaNome2.AutoSize = this.dashAulaNome3.AutoSize = this.dashAulaNome4.AutoSize = true;
+            this.dashAulaProfessor1.AutoSize = this.dashAulaProfessor2.AutoSize = this.dashAulaProfessor3.AutoSize = this.dashAulaProfessor4.AutoSize = true;
+            this.dashAulaNome1.Margin = this.dashAulaNome2.Margin = this.dashAulaNome3.Margin = this.dashAulaNome4.Margin = new System.Windows.Forms.Padding(0);
+            this.dashAulaProfessor1.Margin = this.dashAulaProfessor2.Margin = this.dashAulaProfessor3.Margin = this.dashAulaProfessor4.Margin = new System.Windows.Forms.Padding(0);
+            this.dashAulaNome1.Dock = this.dashAulaProfessor1.Dock = this.dashAulaNome2.Dock = this.dashAulaProfessor2.Dock = this.dashAulaNome3.Dock = this.dashAulaProfessor3.Dock = this.dashAulaNome4.Dock = this.dashAulaProfessor4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashAulaNome1.TextAlign = this.dashAulaProfessor1.TextAlign = this.dashAulaNome2.TextAlign = this.dashAulaProfessor2.TextAlign = this.dashAulaNome3.TextAlign = this.dashAulaProfessor3.TextAlign = this.dashAulaNome4.TextAlign = this.dashAulaProfessor4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dashAulaInfo1.AutoSize = true; this.dashAulaInfo1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink; this.dashAulaInfo1.BackColor = System.Drawing.Color.White; this.dashAulaInfo1.ColumnCount = 1; this.dashAulaInfo1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F)); this.dashAulaInfo1.Controls.Add(this.dashAulaNome1, 0, 0); this.dashAulaInfo1.Controls.Add(this.dashAulaProfessor1, 0, 1); this.dashAulaInfo1.Anchor = System.Windows.Forms.AnchorStyles.Left; this.dashAulaInfo1.Margin = new System.Windows.Forms.Padding(0); this.dashAulaInfo1.Name = "dashAulaInfo1"; this.dashAulaInfo1.RowCount = 2; this.dashAulaInfo1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo1.TabIndex = 0;
+            this.dashAulaInfo2.AutoSize = true; this.dashAulaInfo2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink; this.dashAulaInfo2.BackColor = System.Drawing.Color.White; this.dashAulaInfo2.ColumnCount = 1; this.dashAulaInfo2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F)); this.dashAulaInfo2.Controls.Add(this.dashAulaNome2, 0, 0); this.dashAulaInfo2.Controls.Add(this.dashAulaProfessor2, 0, 1); this.dashAulaInfo2.Anchor = System.Windows.Forms.AnchorStyles.Left; this.dashAulaInfo2.Margin = new System.Windows.Forms.Padding(0); this.dashAulaInfo2.Name = "dashAulaInfo2"; this.dashAulaInfo2.RowCount = 2; this.dashAulaInfo2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo2.TabIndex = 1;
+            this.dashAulaInfo3.AutoSize = true; this.dashAulaInfo3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink; this.dashAulaInfo3.BackColor = System.Drawing.Color.White; this.dashAulaInfo3.ColumnCount = 1; this.dashAulaInfo3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F)); this.dashAulaInfo3.Controls.Add(this.dashAulaNome3, 0, 0); this.dashAulaInfo3.Controls.Add(this.dashAulaProfessor3, 0, 1); this.dashAulaInfo3.Anchor = System.Windows.Forms.AnchorStyles.Left; this.dashAulaInfo3.Margin = new System.Windows.Forms.Padding(0); this.dashAulaInfo3.Name = "dashAulaInfo3"; this.dashAulaInfo3.RowCount = 2; this.dashAulaInfo3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo3.TabIndex = 2;
+            this.dashAulaInfo4.AutoSize = true; this.dashAulaInfo4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink; this.dashAulaInfo4.BackColor = System.Drawing.Color.White; this.dashAulaInfo4.ColumnCount = 1; this.dashAulaInfo4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F)); this.dashAulaInfo4.Controls.Add(this.dashAulaNome4, 0, 0); this.dashAulaInfo4.Controls.Add(this.dashAulaProfessor4, 0, 1); this.dashAulaInfo4.Anchor = System.Windows.Forms.AnchorStyles.Left; this.dashAulaInfo4.Margin = new System.Windows.Forms.Padding(0); this.dashAulaInfo4.Name = "dashAulaInfo4"; this.dashAulaInfo4.RowCount = 2; this.dashAulaInfo4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize)); this.dashAulaInfo4.TabIndex = 3;
+            this.dashAulasTabela.Controls.Add(this.dashAulaHora1, 0, 0); this.dashAulasTabela.Controls.Add(this.dashAulaInfo1, 1, 0);
+            this.dashAulasTabela.Controls.Add(this.dashAulaHora2, 0, 1); this.dashAulasTabela.Controls.Add(this.dashAulaInfo2, 1, 1);
+            this.dashAulasTabela.Controls.Add(this.dashAulaHora3, 0, 2); this.dashAulasTabela.Controls.Add(this.dashAulaInfo3, 1, 2);
+            this.dashAulasTabela.Controls.Add(this.dashAulaHora4, 0, 3); this.dashAulasTabela.Controls.Add(this.dashAulaInfo4, 1, 3);
+            this.dashCardPagamentos.BackColor = System.Drawing.Color.White;
+            this.dashCardPagamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dashCardPagamentos.Paint += new System.Windows.Forms.PaintEventHandler(this.DashboardCard_Paint);
+            this.dashCardPagamentos.Controls.Add(this.dashGradePagamentos);
+            this.dashCardPagamentos.Controls.Add(this.dashCabecalhoPagamentos);
+            this.dashCardPagamentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashCardPagamentos.Margin = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.dashCardPagamentos.Name = "dashCardPagamentos";
+            this.dashCardPagamentos.Padding = new System.Windows.Forms.Padding(20, 16, 20, 12);
+            this.dashCardPagamentos.TabIndex = 1;
+            this.dashCabecalhoPagamentos.BackColor = System.Drawing.Color.White;
+            this.dashCabecalhoPagamentos.ColumnCount = 2;
+            this.dashCabecalhoPagamentos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashCabecalhoPagamentos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.AutoSize));
+            this.dashCabecalhoPagamentos.Controls.Add(this.dashTituloPagamentos, 0, 0);
+            this.dashCabecalhoPagamentos.Controls.Add(this.dashLinkPagamentos, 1, 0);
+            this.dashCabecalhoPagamentos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dashCabecalhoPagamentos.Height = 26;
+            this.dashCabecalhoPagamentos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashCabecalhoPagamentos.Name = "dashCabecalhoPagamentos";
+            this.dashCabecalhoPagamentos.RowCount = 1;
+            this.dashCabecalhoPagamentos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.dashCabecalhoPagamentos.TabIndex = 0;
+            this.dashTituloPagamentos.AutoSize = true;
+            this.dashTituloPagamentos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dashTituloPagamentos.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            this.dashTituloPagamentos.ForeColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashTituloPagamentos.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.dashTituloPagamentos.Name = "dashTituloPagamentos";
+            this.dashTituloPagamentos.Size = new System.Drawing.Size(142, 19);
+            this.dashTituloPagamentos.TabIndex = 0;
+            this.dashTituloPagamentos.Text = "Pagamentos em aberto";
+            this.dashLinkPagamentos.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dashLinkPagamentos.AutoSize = true;
+            this.dashLinkPagamentos.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.dashLinkPagamentos.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.dashLinkPagamentos.LinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkPagamentos.ActiveLinkColor = System.Drawing.Color.FromArgb(30, 58, 138);
+            this.dashLinkPagamentos.VisitedLinkColor = System.Drawing.Color.FromArgb(29, 78, 216);
+            this.dashLinkPagamentos.Margin = new System.Windows.Forms.Padding(0);
+            this.dashLinkPagamentos.Name = "dashLinkPagamentos";
+            this.dashLinkPagamentos.Size = new System.Drawing.Size(55, 15);
+            this.dashLinkPagamentos.TabIndex = 1;
+            this.dashLinkPagamentos.Text = "Ver todos";
+            this.dashLinkPagamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashGradePagamentos.AllowUserToAddRows = false;
+            this.dashGradePagamentos.AllowUserToDeleteRows = false;
+            this.dashGradePagamentos.AllowUserToResizeRows = false;
+            this.dashGradePagamentos.AllowUserToResizeColumns = false;
+            this.dashGradePagamentos.BackgroundColor = System.Drawing.Color.White;
+            this.dashGradePagamentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dashGradePagamentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dashGradePagamentos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dashGradePagamentos.ColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dashGradePagamentos.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dashGradePagamentos.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.dashGradePagamentos.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dashGradePagamentos.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.dashGradePagamentos.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.dashGradePagamentos.ColumnHeadersHeight = 34;
+            this.dashGradePagamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.dashColAluno, this.dashColVencimento, this.dashColValor });
+            this.dashGradePagamentos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashGradePagamentos.Location = new System.Drawing.Point(0, 0);
+            this.dashGradePagamentos.Name = "dashGradePagamentos";
+            this.dashGradePagamentos.ReadOnly = true;
+            this.dashGradePagamentos.RowHeadersVisible = false;
+            this.dashGradePagamentos.RowTemplate.Height = 36;
+            this.dashGradePagamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dashGradePagamentos.Size = new System.Drawing.Size(550, 321);
+            this.dashGradePagamentos.TabIndex = 1;
+            this.dashGradePagamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dashGradePagamentos.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.dashGradePagamentos.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.dashGradePagamentos.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.White;
+            this.dashGradePagamentos.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.dashGradePagamentos.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dashGradePagamentos.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dashGradePagamentos.GridColor = System.Drawing.Color.FromArgb(229, 234, 241);
+            this.dashGradePagamentos.EnableHeadersVisualStyles = false;
+            this.dashColAluno.HeaderText = "Aluno"; this.dashColAluno.Name = "dashColAluno"; this.dashColAluno.ReadOnly = true;
+            this.dashColVencimento.HeaderText = "Vencimento"; this.dashColVencimento.Name = "dashColVencimento"; this.dashColVencimento.ReadOnly = true;
+            this.dashColValor.HeaderText = "Valor"; this.dashColValor.Name = "dashColValor"; this.dashColValor.ReadOnly = true;
+            this.dashGradePagamentos.Rows.Add("Maria Silva", "10/05/2024", "R$ 180,00");
+            this.dashGradePagamentos.Rows.Add("João Pedro", "12/05/2024", "R$ 180,00");
+            this.dashGradePagamentos.Rows.Add("Ana Clara", "15/05/2024", "R$ 180,00");
+            this.dashGradePagamentos.Rows.Add("Pedro Henrique", "18/05/2024", "R$ 180,00");
+            this.dashGradePagamentos.Rows.Add("Laura Souza", "20/05/2024", "R$ 180,00");
+            this.dashGradePagamentos.ClearSelection();
+            ((System.ComponentModel.ISupportInitialize)(this.dashGradePagamentos)).EndInit();
+            this.dashboardContentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.DashboardContentPanel_Paint);
+            //
             // DashboardForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(247, 249, 252);
             this.ClientSize = new System.Drawing.Size(1360, 760);
             this.Controls.Add(this.mainLayout);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimumSize = new System.Drawing.Size(1100, 650);
+            this.MinimumSize = new System.Drawing.Size(820, 560);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AquaFit - Sistema de Gestão";

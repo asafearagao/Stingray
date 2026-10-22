@@ -1,7 +1,6 @@
-namespace Stingray {
+﻿namespace Stingray {
     partial class PagamentosForm {
         private System.ComponentModel.IContainer components = null;
-
         private System.Windows.Forms.Panel paymentPagePanel;
         private System.Windows.Forms.TableLayoutPanel paymentLayout;
         private System.Windows.Forms.Panel headerPanel;
@@ -11,16 +10,13 @@ namespace Stingray {
         private System.Windows.Forms.TableLayoutPanel filtersLayout;
         private System.Windows.Forms.Label lblPeriodo;
         private System.Windows.Forms.Label lblAluno;
-        private System.Windows.Forms.Label lblTurma;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Panel periodoField;
         private System.Windows.Forms.Panel alunoField;
-        private System.Windows.Forms.Panel turmaField;
         private System.Windows.Forms.Panel statusField;
         private System.Windows.Forms.TextBox txtPeriodo;
         private System.Windows.Forms.Button btnCalendario;
         private System.Windows.Forms.TextBox txtAluno;
-        private System.Windows.Forms.ComboBox cmbTurma;
         private System.Windows.Forms.ComboBox cmbStatus;
         private Stingray.RoundedButton btnPesquisar;
         private Stingray.RoundedButton btnLimpar;
@@ -28,7 +24,6 @@ namespace Stingray {
         private System.Windows.Forms.DataGridView gridPayments;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDataPagamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAluno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMatricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTurma;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReferencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFormaPagamento;
@@ -56,24 +51,22 @@ namespace Stingray {
             this.filtersLayout = new System.Windows.Forms.TableLayoutPanel();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.lblAluno = new System.Windows.Forms.Label();
-            this.lblTurma = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.periodoField = new System.Windows.Forms.Panel();
             this.txtPeriodo = new System.Windows.Forms.TextBox();
             this.btnCalendario = new System.Windows.Forms.Button();
             this.alunoField = new System.Windows.Forms.Panel();
             this.txtAluno = new System.Windows.Forms.TextBox();
-            this.turmaField = new System.Windows.Forms.Panel();
-            this.cmbTurma = new System.Windows.Forms.ComboBox();
             this.statusField = new System.Windows.Forms.Panel();
+            this.statusContentPanel = new System.Windows.Forms.Panel();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.btnSetaStatus = new System.Windows.Forms.Button();
             this.btnPesquisar = new Stingray.RoundedButton();
             this.btnLimpar = new Stingray.RoundedButton();
             this.tablePanel = new System.Windows.Forms.Panel();
             this.gridPayments = new System.Windows.Forms.DataGridView();
             this.colDataPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMatricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTurma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFormaPagamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,14 +80,14 @@ namespace Stingray {
             this.filtersLayout.SuspendLayout();
             this.periodoField.SuspendLayout();
             this.alunoField.SuspendLayout();
-            this.turmaField.SuspendLayout();
             this.statusField.SuspendLayout();
+            this.statusContentPanel.SuspendLayout();
             this.tablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPayments)).BeginInit();
             this.SuspendLayout();
-            // 
+            //
             // paymentPagePanel
-            // 
+            //
             this.paymentPagePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
             this.paymentPagePanel.Controls.Add(this.paymentLayout);
             this.paymentPagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -103,9 +96,9 @@ namespace Stingray {
             this.paymentPagePanel.Name = "paymentPagePanel";
             this.paymentPagePanel.Size = new System.Drawing.Size(1100, 680);
             this.paymentPagePanel.TabIndex = 0;
-            // 
+            //
             // paymentLayout
-            // 
+            //
             this.paymentLayout.ColumnCount = 1;
             this.paymentLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.paymentLayout.Controls.Add(this.headerPanel, 0, 0);
@@ -121,9 +114,9 @@ namespace Stingray {
             this.paymentLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.paymentLayout.Size = new System.Drawing.Size(1100, 680);
             this.paymentLayout.TabIndex = 0;
-            // 
+            //
             // headerPanel
-            // 
+            //
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
             this.headerPanel.Controls.Add(this.lblTitle);
             this.headerPanel.Controls.Add(this.btnNovoPagamento);
@@ -133,9 +126,9 @@ namespace Stingray {
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(1100, 64);
             this.headerPanel.TabIndex = 0;
-            // 
+            //
             // lblTitle
-            // 
+            //
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
@@ -144,9 +137,9 @@ namespace Stingray {
             this.lblTitle.Size = new System.Drawing.Size(154, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Pagamentos";
-            // 
+            //
             // btnNovoPagamento
-            // 
+            //
             this.btnNovoPagamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovoPagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(86)))), ((int)(((byte)(196)))));
             this.btnNovoPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -162,9 +155,9 @@ namespace Stingray {
             this.btnNovoPagamento.TabIndex = 1;
             this.btnNovoPagamento.Text = "+   Novo pagamento";
             this.btnNovoPagamento.UseVisualStyleBackColor = false;
-            // 
+            //
             // filtersPanel
-            // 
+            //
             this.filtersPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.filtersPanel.Controls.Add(this.filtersLayout);
             this.filtersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -174,27 +167,24 @@ namespace Stingray {
             this.filtersPanel.Padding = new System.Windows.Forms.Padding(1);
             this.filtersPanel.Size = new System.Drawing.Size(1076, 58);
             this.filtersPanel.TabIndex = 1;
-            // 
+            //
             // filtersLayout
-            // 
+            //
             this.filtersLayout.BackColor = System.Drawing.Color.White;
-            this.filtersLayout.ColumnCount = 6;
-            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
-            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.filtersLayout.ColumnCount = 5;
+            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38F));
+            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11F));
+            this.filtersLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.filtersLayout.Controls.Add(this.lblPeriodo, 0, 0);
             this.filtersLayout.Controls.Add(this.lblAluno, 1, 0);
-            this.filtersLayout.Controls.Add(this.lblTurma, 2, 0);
-            this.filtersLayout.Controls.Add(this.lblStatus, 3, 0);
+            this.filtersLayout.Controls.Add(this.lblStatus, 2, 0);
             this.filtersLayout.Controls.Add(this.periodoField, 0, 1);
             this.filtersLayout.Controls.Add(this.alunoField, 1, 1);
-            this.filtersLayout.Controls.Add(this.turmaField, 2, 1);
-            this.filtersLayout.Controls.Add(this.statusField, 3, 1);
-            this.filtersLayout.Controls.Add(this.btnPesquisar, 4, 1);
-            this.filtersLayout.Controls.Add(this.btnLimpar, 5, 1);
+            this.filtersLayout.Controls.Add(this.statusField, 2, 1);
+            this.filtersLayout.Controls.Add(this.btnPesquisar, 3, 1);
+            this.filtersLayout.Controls.Add(this.btnLimpar, 4, 1);
             this.filtersLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filtersLayout.Location = new System.Drawing.Point(1, 1);
             this.filtersLayout.Margin = new System.Windows.Forms.Padding(0);
@@ -205,9 +195,9 @@ namespace Stingray {
             this.filtersLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.filtersLayout.Size = new System.Drawing.Size(1074, 56);
             this.filtersLayout.TabIndex = 0;
-            // 
+            //
             // lblPeriodo
-            // 
+            //
             this.lblPeriodo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPeriodo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPeriodo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
@@ -218,9 +208,9 @@ namespace Stingray {
             this.lblPeriodo.TabIndex = 0;
             this.lblPeriodo.Text = "Período:";
             this.lblPeriodo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
+            //
             // lblAluno
-            // 
+            //
             this.lblAluno.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAluno.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAluno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
@@ -231,22 +221,9 @@ namespace Stingray {
             this.lblAluno.TabIndex = 1;
             this.lblAluno.Text = "Aluno:";
             this.lblAluno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblTurma
-            // 
-            this.lblTurma.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTurma.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTurma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.lblTurma.Location = new System.Drawing.Point(495, 5);
-            this.lblTurma.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTurma.Name = "lblTurma";
-            this.lblTurma.Size = new System.Drawing.Size(178, 18);
-            this.lblTurma.TabIndex = 2;
-            this.lblTurma.Text = "Turma:";
-            this.lblTurma.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
+            //
             // lblStatus
-            // 
+            //
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
@@ -257,9 +234,9 @@ namespace Stingray {
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "Status:";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
+            //
             // periodoField
-            // 
+            //
             this.periodoField.BackColor = System.Drawing.Color.White;
             this.periodoField.Controls.Add(this.txtPeriodo);
             this.periodoField.Controls.Add(this.btnCalendario);
@@ -269,9 +246,9 @@ namespace Stingray {
             this.periodoField.Name = "periodoField";
             this.periodoField.Size = new System.Drawing.Size(162, 24);
             this.periodoField.TabIndex = 0;
-            // 
+            //
             // txtPeriodo
-            // 
+            //
             this.txtPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPeriodo.BackColor = System.Drawing.Color.White;
             this.txtPeriodo.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -284,9 +261,9 @@ namespace Stingray {
             this.txtPeriodo.Size = new System.Drawing.Size(119, 18);
             this.txtPeriodo.TabIndex = 0;
             this.txtPeriodo.Text = "Selecione o período";
-            // 
+            //
             // btnCalendario
-            // 
+            //
             this.btnCalendario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCalendario.BackColor = System.Drawing.Color.White;
             this.btnCalendario.FlatAppearance.BorderSize = 0;
@@ -301,9 +278,9 @@ namespace Stingray {
             this.btnCalendario.Size = new System.Drawing.Size(26, 24);
             this.btnCalendario.TabIndex = 1;
             this.btnCalendario.UseVisualStyleBackColor = false;
-            // 
+            //
             // alunoField
-            // 
+            //
             this.alunoField.BackColor = System.Drawing.Color.White;
             this.alunoField.Controls.Add(this.txtAluno);
             this.alunoField.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -312,9 +289,9 @@ namespace Stingray {
             this.alunoField.Name = "alunoField";
             this.alunoField.Size = new System.Drawing.Size(306, 24);
             this.alunoField.TabIndex = 1;
-            // 
+            //
             // txtAluno
-            // 
+            //
             this.txtAluno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAluno.BackColor = System.Drawing.Color.White;
             this.txtAluno.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -326,57 +303,44 @@ namespace Stingray {
             this.txtAluno.Size = new System.Drawing.Size(376, 19);
             this.txtAluno.TabIndex = 0;
             this.txtAluno.Text = "Digite o nome do aluno...";
-            // 
-            // turmaField
-            // 
-            this.turmaField.BackColor = System.Drawing.Color.White;
-            this.turmaField.Controls.Add(this.cmbTurma);
-            this.turmaField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.turmaField.Location = new System.Drawing.Point(499, 24);
-            this.turmaField.Margin = new System.Windows.Forms.Padding(4, 1, 5, 1);
-            this.turmaField.Name = "turmaField";
-            this.turmaField.Size = new System.Drawing.Size(169, 26);
-            this.turmaField.TabIndex = 2;
-            // 
-            // cmbTurma
-            // 
-            this.cmbTurma.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbTurma.BackColor = System.Drawing.Color.White;
-            this.cmbTurma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTurma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbTurma.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTurma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.cmbTurma.FormattingEnabled = true;
-            this.cmbTurma.Items.AddRange(new object[] {
-            "Todas",
-            "Hidroginástica",
-            "Natação Iniciante",
-            "Natação Intermediário",
-            "Natação Avançado",
-            "Natação Adulto",
-            "Natação Master",
-            "Natação Competição"});
-            this.cmbTurma.Location = new System.Drawing.Point(5, 2);
-            this.cmbTurma.Margin = new System.Windows.Forms.Padding(0);
-            this.cmbTurma.Name = "cmbTurma";
-            this.cmbTurma.Size = new System.Drawing.Size(149, 25);
-            this.cmbTurma.TabIndex = 2;
-            // 
+            //
             // statusField
-            // 
+            //
             this.statusField.BackColor = System.Drawing.Color.White;
-            this.statusField.Controls.Add(this.cmbStatus);
+            this.statusField.Controls.Add(this.statusContentPanel);
+            this.statusContentPanel.BackColor = System.Drawing.Color.White;
+            this.statusContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusContentPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.statusContentPanel.Name = "statusFieldContent";
+            this.statusContentPanel.Padding = new System.Windows.Forms.Padding(0);
+            this.statusContentPanel.Controls.Add(this.cmbStatus);
+            this.statusContentPanel.Controls.Add(this.btnSetaStatus);
+            this.btnSetaStatus.AccessibleDescription = "Abre a lista de status";
+            this.btnSetaStatus.AccessibleName = "Abrir opções de status";
+            this.btnSetaStatus.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.btnSetaStatus.BackColor = System.Drawing.Color.White;
+            this.btnSetaStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetaStatus.FlatAppearance.BorderSize = 0;
+            this.btnSetaStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(219, 234, 254);
+            this.btnSetaStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(239, 246, 255);
+            this.btnSetaStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetaStatus.Location = new System.Drawing.Point(120, 0);
+            this.btnSetaStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSetaStatus.Name = "btnSetaStatus";
+            this.btnSetaStatus.Size = new System.Drawing.Size(26, 24);
+            this.btnSetaStatus.TabIndex = 1;
+            this.btnSetaStatus.Text = "";
+            this.btnSetaStatus.UseVisualStyleBackColor = false;
             this.statusField.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statusField.Location = new System.Drawing.Point(677, 24);
             this.statusField.Margin = new System.Windows.Forms.Padding(4, 1, 5, 1);
             this.statusField.Name = "statusField";
             this.statusField.Size = new System.Drawing.Size(169, 26);
             this.statusField.TabIndex = 3;
-            // 
+            //
             // cmbStatus
-            // 
-            this.cmbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            //
+            this.cmbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbStatus.BackColor = System.Drawing.Color.White;
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -394,9 +358,9 @@ namespace Stingray {
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(149, 25);
             this.cmbStatus.TabIndex = 3;
-            // 
+            //
             // btnPesquisar
-            // 
+            //
             this.btnPesquisar.BackColor = System.Drawing.Color.White;
             this.btnPesquisar.CornerRadius = 5;
             this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -415,9 +379,9 @@ namespace Stingray {
             this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "⌕  Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
-            // 
+            //
             // btnLimpar
-            // 
+            //
             this.btnLimpar.BackColor = System.Drawing.Color.White;
             this.btnLimpar.CornerRadius = 5;
             this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -436,9 +400,9 @@ namespace Stingray {
             this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
-            // 
+            //
             // tablePanel
-            // 
+            //
             this.tablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.tablePanel.Controls.Add(this.gridPayments);
             this.tablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -448,9 +412,9 @@ namespace Stingray {
             this.tablePanel.Padding = new System.Windows.Forms.Padding(1);
             this.tablePanel.Size = new System.Drawing.Size(1076, 536);
             this.tablePanel.TabIndex = 2;
-            // 
+            //
             // gridPayments
-            // 
+            //
             this.gridPayments.AllowUserToAddRows = false;
             this.gridPayments.AllowUserToDeleteRows = false;
             this.gridPayments.AllowUserToResizeRows = false;
@@ -474,7 +438,6 @@ namespace Stingray {
             this.gridPayments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDataPagamento,
             this.colAluno,
-            this.colMatricula,
             this.colTurma,
             this.colReferencia,
             this.colFormaPagamento,
@@ -507,9 +470,9 @@ namespace Stingray {
             this.gridPayments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPayments.Size = new System.Drawing.Size(1074, 534);
             this.gridPayments.TabIndex = 0;
-            // 
+            //
             // colDataPagamento
-            // 
+            //
             this.colDataPagamento.FillWeight = 105F;
             this.colDataPagamento.HeaderText = "Data do Pagamento";
             this.colDataPagamento.MinimumWidth = 45;
@@ -517,9 +480,9 @@ namespace Stingray {
             this.colDataPagamento.ReadOnly = true;
             this.colDataPagamento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colDataPagamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colAluno
-            // 
+            //
             this.colAluno.FillWeight = 110F;
             this.colAluno.HeaderText = "Aluno";
             this.colAluno.MinimumWidth = 45;
@@ -527,29 +490,19 @@ namespace Stingray {
             this.colAluno.ReadOnly = true;
             this.colAluno.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colAluno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colMatricula
-            // 
-            this.colMatricula.FillWeight = 90F;
-            this.colMatricula.HeaderText = "Matrícula";
-            this.colMatricula.MinimumWidth = 45;
-            this.colMatricula.Name = "colMatricula";
-            this.colMatricula.ReadOnly = true;
-            this.colMatricula.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colMatricula.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colTurma
-            // 
-            this.colTurma.FillWeight = 115F;
+            //
+            this.colTurma.FillWeight = 145F;
             this.colTurma.HeaderText = "Turma";
             this.colTurma.MinimumWidth = 45;
             this.colTurma.Name = "colTurma";
             this.colTurma.ReadOnly = true;
             this.colTurma.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colTurma.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colReferencia
-            // 
+            //
             this.colReferencia.FillWeight = 90F;
             this.colReferencia.HeaderText = "Referência";
             this.colReferencia.MinimumWidth = 45;
@@ -557,9 +510,9 @@ namespace Stingray {
             this.colReferencia.ReadOnly = true;
             this.colReferencia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colReferencia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colFormaPagamento
-            // 
+            //
             this.colFormaPagamento.FillWeight = 125F;
             this.colFormaPagamento.HeaderText = "Forma de Pagamento";
             this.colFormaPagamento.MinimumWidth = 45;
@@ -567,9 +520,9 @@ namespace Stingray {
             this.colFormaPagamento.ReadOnly = true;
             this.colFormaPagamento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colFormaPagamento.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colValor
-            // 
+            //
             this.colValor.FillWeight = 80F;
             this.colValor.HeaderText = "Valor (R$)";
             this.colValor.MinimumWidth = 45;
@@ -577,9 +530,9 @@ namespace Stingray {
             this.colValor.ReadOnly = true;
             this.colValor.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colValor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colStatus
-            // 
+            //
             this.colStatus.FillWeight = 70F;
             this.colStatus.HeaderText = "Status";
             this.colStatus.MinimumWidth = 45;
@@ -587,9 +540,9 @@ namespace Stingray {
             this.colStatus.ReadOnly = true;
             this.colStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // colAcoes
-            // 
+            //
             this.colAcoes.FillWeight = 82F;
             this.colAcoes.HeaderText = "Ações";
             this.colAcoes.MinimumWidth = 45;
@@ -597,9 +550,9 @@ namespace Stingray {
             this.colAcoes.ReadOnly = true;
             this.colAcoes.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colAcoes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
+            //
             // PagamentosForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(252)))));
@@ -620,12 +573,11 @@ namespace Stingray {
             this.periodoField.PerformLayout();
             this.alunoField.ResumeLayout(false);
             this.alunoField.PerformLayout();
-            this.turmaField.ResumeLayout(false);
+            this.statusContentPanel.ResumeLayout(false);
             this.statusField.ResumeLayout(false);
             this.tablePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridPayments)).EndInit();
             this.ResumeLayout(false);
-
         }
     }
 }
