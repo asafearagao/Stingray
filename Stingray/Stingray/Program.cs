@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stingray.Formularios;
+using System;
 using System.Windows.Forms;
 
 namespace Stingray {
@@ -7,7 +8,7 @@ namespace Stingray {
         private static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DashboardForm());
+            Application.Run(new LoginForm());
         }
     }
 }
