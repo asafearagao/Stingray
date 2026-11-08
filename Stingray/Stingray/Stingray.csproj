@@ -64,63 +64,70 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Conexao.cs" />
+    <Compile Include="Classes\SenhaHasher.cs" />
+    <Compile Include="Formularios\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WhatsAppService.cs" />
-    <Compile Include="ToggleSwitch.cs">
+    <Compile Include="Componentes\ToggleSwitch.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AlunosForm.Visual.cs">
+    <Compile Include="Formularios\AlunosForm.Visual.cs">
       <DependentUpon>AlunosForm.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoundedButton.cs">
+    <Compile Include="Componentes\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PagamentosForm.cs">
+    <Compile Include="Formularios\PagamentosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PagamentosForm.Designer.cs">
+    <Compile Include="Formularios\PagamentosForm.Designer.cs">
       <DependentUpon>PagamentosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DashboardForm.cs">
+    <Compile Include="Formularios\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashboardForm.Designer.cs">
+    <Compile Include="Formularios\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProfessoresForm.cs">
+    <Compile Include="Formularios\ProfessoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProfessoresForm.Designer.cs">
+    <Compile Include="Formularios\ProfessoresForm.Designer.cs">
       <DependentUpon>ProfessoresForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TurmasForm.cs">
+    <Compile Include="Formularios\TurmasForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TurmasForm.Designer.cs">
+    <Compile Include="Formularios\TurmasForm.Designer.cs">
       <DependentUpon>TurmasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlunosForm.cs">
+    <Compile Include="Formularios\AlunosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlunosForm.Designer.cs">
+    <Compile Include="Formularios\AlunosForm.Designer.cs">
       <DependentUpon>AlunosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresencaForm.cs">
+    <Compile Include="Formularios\PresencaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresencaForm.Designer.cs">
+    <Compile Include="Formularios\PresencaForm.Designer.cs">
       <DependentUpon>PresencaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RelatoriosForm.cs">
+    <Compile Include="Formularios\RelatoriosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelatoriosForm.Designer.cs">
+    <Compile Include="Formularios\RelatoriosForm.Designer.cs">
       <DependentUpon>RelatoriosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfiguracoesForm.cs">
+    <Compile Include="Formularios\ConfiguracoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfiguracoesForm.Designer.cs">
+    <Compile Include="Formularios\ConfiguracoesForm.Designer.cs">
       <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="VisualPadrao.cs" />
@@ -135,28 +142,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AlunosForm.resx">
+    <EmbeddedResource Include="Formularios\AlunosForm.resx">
       <DependentUpon>AlunosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TurmasForm.resx">
+    <EmbeddedResource Include="Formularios\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TurmasForm.resx">
       <DependentUpon>TurmasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PagamentosForm.resx">
+    <EmbeddedResource Include="Formularios\PagamentosForm.resx">
       <DependentUpon>PagamentosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DashboardForm.resx">
+    <EmbeddedResource Include="Formularios\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresencaForm.resx">
+    <EmbeddedResource Include="Formularios\PresencaForm.resx">
       <DependentUpon>PresencaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProfessoresForm.resx">
+    <EmbeddedResource Include="Formularios\ProfessoresForm.resx">
       <DependentUpon>ProfessoresForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RelatoriosForm.resx">
+    <EmbeddedResource Include="Formularios\RelatoriosForm.resx">
       <DependentUpon>RelatoriosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfiguracoesForm.resx">
+    <EmbeddedResource Include="Formularios\ConfiguracoesForm.resx">
       <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
