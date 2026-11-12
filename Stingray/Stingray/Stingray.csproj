@@ -71,6 +71,12 @@
     <Compile Include="Formularios\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Aluno.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Professor.cs" />
+    <Compile Include="Models\Responsavel.cs" />
+    <Compile Include="Models\Telefone.cs" />
     <Compile Include="WhatsAppService.cs" />
     <Compile Include="Componentes\ToggleSwitch.cs">
       <SubType>Component</SubType>
@@ -179,8 +185,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
