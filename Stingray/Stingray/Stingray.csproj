@@ -1,24 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{05352C82-35AC-438E-904A-0EF8C1ABA39B}</ProjectGuid>
-    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Stingray</RootNamespace>
     <AssemblyName>Stingray</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <Deterministic>true</Deterministic>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,14 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MySqlConnector">
-      <Version>2.6.2</Version>
-    </PackageReference>
-    <PackageReference Include="Selenium.WebDriver" Version="4.51.0" />
-    <PackageReference Include="Selenium.Support" Version="4.51.0" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Configuration" />
@@ -56,88 +41,82 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Conexao.cs" />
-    <Compile Include="Classes\SenhaHasher.cs" />
-    <Compile Include="Formularios\LoginForm.cs">
+    <Compile Include="AgendaAulasForm.cs" />
+    <Compile Include="DashboardForm.Visual.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="MatriculasForm.Visual.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Models\Aluno.cs" />
-    <Compile Include="Models\Endereco.cs" />
-    <Compile Include="Models\Pessoa.cs" />
-    <Compile Include="Models\Professor.cs" />
-    <Compile Include="Models\Responsavel.cs" />
-    <Compile Include="Models\Telefone.cs" />
-    <Compile Include="WhatsAppService.cs" />
-    <Compile Include="Componentes\ToggleSwitch.cs">
+    <Compile Include="RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Formularios\AlunosForm.Visual.cs">
-      <DependentUpon>AlunosForm.cs</DependentUpon>
+    <Compile Include="PagamentosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Componentes\RoundedButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Formularios\PagamentosForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\PagamentosForm.Designer.cs">
+    <Compile Include="PagamentosForm.Designer.cs">
       <DependentUpon>PagamentosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\DashboardForm.cs">
+    <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\DashboardForm.Designer.cs">
+    <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\ProfessoresForm.cs">
+    <Compile Include="AlunosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\ProfessoresForm.Designer.cs">
-      <DependentUpon>ProfessoresForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\TurmasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\TurmasForm.Designer.cs">
-      <DependentUpon>TurmasForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\AlunosForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\AlunosForm.Designer.cs">
+    <Compile Include="AlunosForm.Designer.cs">
       <DependentUpon>AlunosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\PresencaForm.cs">
+    <Compile Include="ProfessoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\PresencaForm.Designer.cs">
+    <Compile Include="ProfessoresForm.Designer.cs">
+      <DependentUpon>ProfessoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurmasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurmasForm.Designer.cs">
+      <DependentUpon>TurmasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HorariosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HorariosForm.Designer.cs">
+      <DependentUpon>HorariosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MatriculasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatriculasForm.Designer.cs">
+      <DependentUpon>MatriculasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresencaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresencaForm.Designer.cs">
       <DependentUpon>PresencaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\RelatoriosForm.cs">
+    <Compile Include="RelatoriosForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\RelatoriosForm.Designer.cs">
+    <Compile Include="RelatoriosForm.Designer.cs">
       <DependentUpon>RelatoriosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\ConfiguracoesForm.cs">
+    <Compile Include="ConfiguracoesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\ConfiguracoesForm.Designer.cs">
+    <Compile Include="ConfiguracoesForm.Designer.cs">
       <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VisualPadrao.cs" />
-    <Compile Include="DesignModeHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -148,32 +127,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Formularios\AlunosForm.resx">
+    <EmbeddedResource Include="AlunosForm.resx">
       <DependentUpon>AlunosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="HorariosForm.resx">
+      <DependentUpon>HorariosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\TurmasForm.resx">
-      <DependentUpon>TurmasForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\PagamentosForm.resx">
+    <EmbeddedResource Include="PagamentosForm.resx">
       <DependentUpon>PagamentosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\DashboardForm.resx">
+    <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\PresencaForm.resx">
+    <EmbeddedResource Include="PresencaForm.resx">
       <DependentUpon>PresencaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\ProfessoresForm.resx">
+    <EmbeddedResource Include="ProfessoresForm.resx">
       <DependentUpon>ProfessoresForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\RelatoriosForm.resx">
-      <DependentUpon>RelatoriosForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\ConfiguracoesForm.resx">
-      <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,6 +155,5 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
