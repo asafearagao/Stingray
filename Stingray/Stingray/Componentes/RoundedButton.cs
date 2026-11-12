@@ -33,7 +33,8 @@ namespace Stingray {
         public bool ShowLeftIndicator {
             get { return showLeftIndicator; }
             set {
-                if (showLeftIndicator == value) return;
+                if (showLeftIndicator == value)
+                    return;
                 showLeftIndicator = value;
                 Invalidate();
             }
@@ -45,22 +46,26 @@ namespace Stingray {
             get { return cornerRadius; }
             set {
                 int adjusted = Math.Max(0, value);
-                if (cornerRadius == adjusted) return;
+                if (cornerRadius == adjusted)
+                    return;
                 cornerRadius = adjusted;
                 Invalidate();
             }
         }
 
         protected override void OnPaintBackground(PaintEventArgs e) {
-            // WinForms não oferece transparência para controles elementos dentro de outros (filhos). Pintar o fundo
-            // do objeto pai evita que os cantos arredondados revelem pixels pretos
-            Color background = Parent != null ? Parent.BackColor : SystemColors.Control;
+            // Preenche o fundo do pai para esconder os cantos não arredondados
+
+            Color background = Parent != null
+                ? Parent.BackColor
+                : SystemColors.Control;
             using (SolidBrush brush = new SolidBrush(background))
                 e.Graphics.FillRectangle(brush, ClientRectangle);
         }
 
         protected override void OnPaint(PaintEventArgs e) {
-            if (ClientSize.Width < 2 || ClientSize.Height < 2) return;
+            if (ClientSize.Width < 2 || ClientSize.Height < 2)
+                return;
 
             Graphics graphics = e.Graphics;
             SmoothingMode oldSmoothing = graphics.SmoothingMode;
@@ -88,27 +93,23 @@ namespace Stingray {
                 }
 
                 if (showLeftIndicator) {
-                    // A faixa acompanha o contorno arredondado do botão e termina suavemente
-                    // antes das extremidades, evitando o aspecto de um retângulo sobreposto.
+                    // Mantém o indicador dentro do contorno do botão
+                    // antes das extremidades, evitando o aspecto de um retângulo sobreposto
                     GraphicsState indicatorState = graphics.Save();
                     try {
                         using (GraphicsPath buttonShape = CreateRoundedPath(bounds, cornerRadius)) {
                             graphics.SetClip(buttonShape, CombineMode.Intersect);
-                            // Faixa estreita, próxima da borda esquerda e com pequenas
-                            // margens verticais. O raio próprio da faixa forma extremidades
-                            // arredondadas sem transformar o indicador em um bloco largo.
-                            RectangleF faixa = new RectangleF(
-                                bounds.Left,
-                                bounds.Top + 2.5f,
-                                3.5f,
-                                Math.Max(1f, bounds.Height - 5f));
+                            // Desenha uma faixa curta à esquerda
+
+                            // arredondadas sem transformar o indicador em um bloco largo
+                            RectangleF faixa = new RectangleF(bounds.Left, bounds.Top + 2.5f, 3.5f, Math.Max(1f, bounds.Height - 5f));
                             using (GraphicsPath indicatorPath = CreateRoundedPath(faixa, 2))
                             using (SolidBrush indicatorBrush = new SolidBrush(Color.FromArgb(25, 86, 196))) {
                                 graphics.FillPath(indicatorBrush, indicatorPath);
                             }
                         }
-                    }
-                    finally {
+
+                    } finally {
                         graphics.Restore(indicatorState);
                     }
                 }
@@ -125,8 +126,8 @@ namespace Stingray {
                 }
 
                 DrawButtonText(graphics);
-            }
-            finally {
+
+            } finally {
                 graphics.SmoothingMode = oldSmoothing;
                 graphics.PixelOffsetMode = oldOffset;
                 graphics.CompositingQuality = oldCompositing;
@@ -134,7 +135,8 @@ namespace Stingray {
         }
 
         private Color GetDisplayedBackColor() {
-            if (!Enabled) return SystemColors.Control;
+            if (!Enabled)
+                return SystemColors.Control;
             if (pointerPressed && FlatAppearance.MouseDownBackColor != Color.Empty)
                 return FlatAppearance.MouseDownBackColor;
             if (pointerInside && FlatAppearance.MouseOverBackColor != Color.Empty)
@@ -143,14 +145,16 @@ namespace Stingray {
         }
 
         private void DrawButtonText(Graphics graphics) {
-            if (string.IsNullOrEmpty(Text)) return;
+            if (string.IsNullOrEmpty(Text))
+                return;
 
             Rectangle area = ClientRectangle;
             area.X += Padding.Left + 2;
             area.Y += Padding.Top;
             area.Width -= Padding.Horizontal + 4;
             area.Height -= Padding.Vertical;
-            if (area.Width <= 0 || area.Height <= 0) return;
+            if (area.Width <= 0 || area.Height <= 0)
+                return;
 
             TextFormatFlags flags = TextFormatFlags.SingleLine |
                                     TextFormatFlags.VerticalCenter |
@@ -191,7 +195,8 @@ namespace Stingray {
         }
 
         protected override void OnMouseDown(MouseEventArgs e) {
-            if (e.Button == MouseButtons.Left) pointerPressed = true;
+            if (e.Button == MouseButtons.Left)
+                pointerPressed = true;
             base.OnMouseDown(e);
             Invalidate();
         }
@@ -217,7 +222,5 @@ namespace Stingray {
             path.CloseFigure();
             return path;
         }
-
-
     }
 }

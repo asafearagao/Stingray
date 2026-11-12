@@ -1,19 +1,14 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.ComponentModel;
 using System.Globalization;
-using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Stingray {
     [System.ComponentModel.DesignerCategory("Form")]
     public partial class PagamentosForm : System.Windows.Forms.Form {
-        private readonly Color azul = Color.FromArgb(25, 86, 196);
-        private readonly Color azulClaro = Color.FromArgb(239, 246, 255);
-        private readonly Color textoEscuro = Color.FromArgb(55, 65, 81);
-        private readonly Color textoPlaceholder = Color.FromArgb(148, 163, 184);
-
         private Panel popupPeriodo;
         private Panel campoDataInicial;
         private Panel campoDataFinal;
@@ -37,6 +32,8 @@ namespace Stingray {
         private DateTime? dataFinalSelecionada;
         private IMessageFilter filtroCliqueExterno;
         private bool placeholderAluno = true;
+        private int linhaAcaoSobMousePg = -1;
+        private int botaoAcaoSobMousePg = -1;
         private DateTime? dataInicialAplicada;
         private DateTime? dataFinalAplicada;
 
@@ -52,14 +49,22 @@ namespace Stingray {
 
         public PagamentosForm() {
             InitializeComponent();
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-                return;
+            bool emDesignTime = DesignModeHelper.IsDesignMode(this);
 
             ConfigurarAparenciaFiltros();
             ConfigurarPosicaoBotaoNovoPagamento();
 
-            if (cmbTurma.Items.Count > 0) cmbTurma.SelectedIndex = 0;
-            if (cmbStatus.Items.Count > 0) cmbStatus.SelectedIndex = 0;
+            if (cmbStatus.Items.Count > 0)
+                cmbStatus.SelectedIndex = 0;
+
+            if (emDesignTime) {
+                txtPeriodo.Text = "Selecione o período";
+                txtPeriodo.ForeColor = VisualPadrao.TextoPlaceholder;
+                txtAluno.Text = "Digite o nome do aluno...";
+                txtAluno.ForeColor = VisualPadrao.TextoPlaceholder;
+                PreencherPagamentosDeExemplo();
+                return;
+            }
 
             ConfigurarEventosPagamento();
             ConfigurarPopupPeriodo();
@@ -76,7 +81,7 @@ namespace Stingray {
                 btnLimpar.BackColor = Color.FromArgb(254, 242, 242);
             };
             btnLimpar.MouseLeave += delegate {
-                btnLimpar.ForeColor = textoEscuro;
+                btnLimpar.ForeColor = VisualPadrao.TextoPrincipal;
                 btnLimpar.FlatAppearance.BorderColor = Color.FromArgb(203, 213, 225);
                 btnLimpar.BackColor = Color.White;
             };
@@ -94,19 +99,22 @@ namespace Stingray {
             txtAluno.Enter += delegate {
                 if (placeholderAluno) {
                     txtAluno.Clear();
-                    txtAluno.ForeColor = textoEscuro;
+                    txtAluno.ForeColor = VisualPadrao.TextoPrincipal;
                     placeholderAluno = false;
                 }
             };
             txtAluno.Leave += delegate {
                 if (string.IsNullOrWhiteSpace(txtAluno.Text)) {
                     txtAluno.Text = "Digite o nome do aluno...";
-                    txtAluno.ForeColor = textoPlaceholder;
+                    txtAluno.ForeColor = VisualPadrao.TextoPlaceholder;
                     placeholderAluno = true;
                 }
             };
             gridPayments.CellPainting += GridPayments_CellPainting;
             gridPayments.CellContentClick += GridPayments_CellContentClick;
+            gridPayments.CellMouseMove += GridPayments_CellMouseMove;
+            gridPayments.CellMouseLeave += GridPayments_CellMouseLeave;
+            colTurma.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         private void ConfigurarPosicaoBotaoNovoPagamento() {
             if (headerPanel == null || btnNovoPagamento == null)
@@ -137,7 +145,6 @@ namespace Stingray {
         private void ConfigurarAparenciaFiltros() {
             periodoField.BackColor = Color.White;
             alunoField.BackColor = Color.White;
-            PrepararCampoSeletor(turmaField, cmbTurma, out turmaContentPanel);
             PrepararCampoSeletor(statusField, cmbStatus, out statusContentPanel);
             txtPeriodo.BackColor = Color.White;
             txtAluno.BackColor = Color.White;
@@ -151,37 +158,26 @@ namespace Stingray {
             btnCalendario.AccessibleName = "Selecionar período completo";
             btnCalendario.AccessibleDescription = "Abre o seletor de data inicial e data final";
             ConfigurarBotaoIconeCalendario(btnCalendario, TipoIconeCalendario.Periodo);
-            cmbTurma.Dock = DockStyle.None;
-            cmbTurma.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cmbStatus.Dock = DockStyle.None;
             cmbStatus.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
 
-            // Mantém o valor selecionado com fundo branco.
-            cmbTurma.DrawMode = DrawMode.OwnerDrawFixed;
+            // Mantém o valor selecionado com fundo branco
             cmbStatus.DrawMode = DrawMode.OwnerDrawFixed;
-            cmbTurma.ItemHeight = 18;
             cmbStatus.ItemHeight = 18;
-            cmbTurma.DrawItem += ComboFiltro_DrawItem;
             cmbStatus.DrawItem += ComboFiltro_DrawItem;
-            cmbTurma.DropDownClosed += delegate { cmbTurma.Invalidate(); turmaField.Invalidate(); };
             cmbStatus.DropDownClosed += delegate { cmbStatus.Invalidate(); statusField.Invalidate(); };
 
-            CriarBotaoSetaCombo(turmaContentPanel, cmbTurma, true);
             CriarBotaoSetaCombo(statusContentPanel, cmbStatus, false);
 
-            // Período e Aluno usam contorno próprio; os seletores usam externo
+            // Período e Aluno usam contorno próprio
             periodoField.Paint += CampoFiltro_Paint;
             alunoField.Paint += CampoFiltro_Paint;
-            cmbTurma.AutoSize = false;
             cmbStatus.AutoSize = false;
-            cmbTurma.FlatStyle = FlatStyle.Flat;
             cmbStatus.FlatStyle = FlatStyle.Flat;
 
             periodoField.SizeChanged += delegate { PosicionarControlesFiltro(); };
             alunoField.SizeChanged += delegate { PosicionarControlesFiltro(); };
-            turmaField.SizeChanged += delegate { PosicionarControlesFiltro(); };
             statusField.SizeChanged += delegate { PosicionarControlesFiltro(); };
-            if (turmaContentPanel != null) turmaContentPanel.SizeChanged += delegate { PosicionarControlesFiltro(); };
             if (statusContentPanel != null) statusContentPanel.SizeChanged += delegate { PosicionarControlesFiltro(); };
             PosicionarControlesFiltro();
         }
@@ -191,21 +187,32 @@ namespace Stingray {
             campo.Padding = new Padding(1);
             campo.BackColor = Color.FromArgb(203, 213, 225);
 
-            conteudo = new Panel();
-            conteudo.Name = campo.Name + "Content";
-            conteudo.Dock = DockStyle.Fill;
-            conteudo.Margin = new Padding(0);
-            conteudo.Padding = new Padding(0);
-            conteudo.BackColor = Color.White;
-            campo.Controls.Add(conteudo);
-            conteudo.BringToFront();
-
-            combo.Parent = conteudo;
+            conteudo = null;
+            foreach (Control controle in campo.Controls) {
+                Panel candidata = controle as Panel;
+                if (candidata != null && candidata.Name == campo.Name + "Content") {
+                    conteudo = candidata;
+                    break;
+                }
+            }
+            if (conteudo == null) {
+                conteudo = new Panel();
+                conteudo.Name = campo.Name + "Content";
+                conteudo.Dock = DockStyle.Fill;
+                conteudo.Margin = new Padding(0);
+                conteudo.Padding = new Padding(0);
+                conteudo.BackColor = Color.White;
+                campo.Controls.Add(conteudo);
+            }
+            if (combo.Parent != conteudo)
+                conteudo.Controls.Add(combo);
             combo.BackColor = Color.White;
         }
 
         private void CriarBotaoSetaCombo(Panel campo, ComboBox combo, bool turma) {
-            Button seta = new Button();
+            Button seta = turma ? btnSetaTurma : btnSetaStatus;
+            if (seta == null)
+                seta = new Button();
             seta.Name = turma ? "btnSetaTurma" : "btnSetaStatus";
             seta.AccessibleName = turma ? "Abrir opções de turma" : "Abrir opções de status";
             seta.AccessibleDescription = "Abre a lista de opções";
@@ -229,18 +236,23 @@ namespace Stingray {
                 combo.DroppedDown = true;
             };
 
-            campo.Controls.Add(seta);
+            if (seta.Parent != campo)
+                campo.Controls.Add(seta);
             seta.BringToFront();
-            if (turma) btnSetaTurma = seta;
-            else btnSetaStatus = seta;
+            if (turma)
+                btnSetaTurma = seta;
+            else
+                btnSetaStatus = seta;
         }
 
         private void ComboSeta_Paint(object sender, PaintEventArgs e) {
             Button seta = sender as Button;
-            if (seta == null) return;
+            if (seta == null)
+                return;
 
             Rectangle r = seta.ClientRectangle;
-            if (r.Width < 8 || r.Height < 8) return;
+            if (r.Width < 8 || r.Height < 8)
+                return;
 
             bool hover = r.Contains(seta.PointToClient(Cursor.Position));
             Color corSeta = hover ? Color.FromArgb(37, 99, 235) : Color.FromArgb(100, 116, 139);
@@ -269,8 +281,8 @@ namespace Stingray {
 
             bool itemSelecionadoNaLista = combo.DroppedDown && e.Index >= 0 &&
                 (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            Color fundo = itemSelecionadoNaLista ? azul : Color.White;
-            Color texto = itemSelecionadoNaLista ? Color.White : textoEscuro;
+            Color fundo = itemSelecionadoNaLista ? VisualPadrao.Azul : Color.White;
+            Color texto = itemSelecionadoNaLista ? Color.White : VisualPadrao.TextoPrincipal;
 
             using (Brush brushFundo = new SolidBrush(fundo))
                 e.Graphics.FillRectangle(brushFundo, e.Bounds);
@@ -298,7 +310,8 @@ namespace Stingray {
         }
 
         private void ConfigurarBotaoIconeCalendario(Button botao, TipoIconeCalendario tipo) {
-            if (botao == null) return;
+            if (botao == null)
+                return;
             botao.Tag = tipo;
             botao.Text = string.Empty;
             botao.Padding = new Padding(0);
@@ -316,7 +329,8 @@ namespace Stingray {
 
         private void CalendarioButton_Paint(object sender, PaintEventArgs e) {
             Button botao = sender as Button;
-            if (botao == null) return;
+            if (botao == null)
+                return;
 
             bool hover = botao.ClientRectangle.Contains(botao.PointToClient(Cursor.Position));
             Color cor = hover ? Color.FromArgb(29, 78, 216) : Color.FromArgb(55, 96, 160);
@@ -328,7 +342,8 @@ namespace Stingray {
 
         private static void DesenharIconeCalendario(Graphics graphics, Rectangle bounds, Color color, TipoIconeCalendario tipo) {
             float tamanho = Math.Min(18F, Math.Min(bounds.Width - 4F, bounds.Height - 4F));
-            if (tamanho < 12F) return;
+            if (tamanho < 12F)
+                return;
 
             float escala = tamanho / 18F;
             float x = bounds.Left + (bounds.Width - tamanho) / 2F;
@@ -372,8 +387,8 @@ namespace Stingray {
                     for (int i = 0; i < dias.GetLength(0); i++)
                         graphics.FillEllipse(dots, x + dias[i, 0] * escala, y + dias[i, 1] * escala, d, d);
                 }
-            }
-            finally {
+
+            } finally {
                 graphics.SmoothingMode = oldSmoothing;
                 graphics.PixelOffsetMode = oldPixelOffset;
             }
@@ -411,7 +426,6 @@ namespace Stingray {
                     Math.Max(20, alunoField.ClientSize.Width - 12), alturaTextoAluno);
             }
 
-            PosicionarComboNoCampo(turmaContentPanel, cmbTurma, btnSetaTurma);
             PosicionarComboNoCampo(statusContentPanel, cmbStatus, btnSetaStatus);
         }
         private static void PosicionarComboNoCampo(Panel campo, ComboBox combo, Button seta) {
@@ -484,7 +498,7 @@ namespace Stingray {
             aplicar.Size = new Size(220, 31);
             aplicar.FlatStyle = FlatStyle.Flat;
             aplicar.FlatAppearance.BorderSize = 0;
-            aplicar.BackColor = azul;
+            aplicar.BackColor = VisualPadrao.Azul;
             aplicar.ForeColor = Color.White;
             aplicar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             aplicar.Cursor = Cursors.Hand;
@@ -560,12 +574,12 @@ namespace Stingray {
                 dia.TabStop = false;
                 dia.FlatStyle = FlatStyle.Flat;
                 dia.FlatAppearance.BorderSize = 0;
-                dia.FlatAppearance.MouseOverBackColor = azul;
+                dia.FlatAppearance.MouseOverBackColor = VisualPadrao.Azul;
                 dia.FlatAppearance.MouseDownBackColor = Color.FromArgb(29, 78, 216);
                 dia.UseVisualStyleBackColor = false;
                 dia.BackColor = Color.White;
                 dia.Font = fonteDiaCalendario;
-                dia.ForeColor = textoEscuro;
+                dia.ForeColor = VisualPadrao.TextoPrincipal;
                 dia.Cursor = Cursors.Hand;
                 dia.Click += delegate {
                     if (dia.Tag is DateTime)
@@ -591,8 +605,8 @@ namespace Stingray {
             lblHojeCalendario.Cursor = Cursors.Hand;
             lblHojeCalendario.TabStop = false;
             lblHojeCalendario.MouseEnter += delegate {
-                lblHojeCalendario.ForeColor = azul;
-                lblHojeCalendario.BackColor = azulClaro;
+                lblHojeCalendario.ForeColor = VisualPadrao.Azul;
+                lblHojeCalendario.BackColor = VisualPadrao.AzulClaro;
             };
             lblHojeCalendario.MouseLeave += delegate {
                 lblHojeCalendario.ForeColor = Color.FromArgb(71, 85, 105);
@@ -645,7 +659,8 @@ namespace Stingray {
                 dia.Text = ((DateTime)dia.Tag).Day.ToString(CultureInfo.InvariantCulture);
                 EstilizarDiaCalendario(dia, false);
             }
-            if (calendarioFlutuante != null) calendarioFlutuante.Invalidate(true);
+            if (calendarioFlutuante != null)
+                calendarioFlutuante.Invalidate(true);
         }
 
         private void EstilizarDiaCalendario(Button botao, bool hover) {
@@ -659,40 +674,43 @@ namespace Stingray {
             botao.FlatAppearance.BorderSize = 0;
             botao.Font = hoje ? fonteDiaCalendarioHoje : fonteDiaCalendario;
             if (hover) {
-                botao.BackColor = azul;
+                botao.BackColor = VisualPadrao.Azul;
                 botao.ForeColor = Color.White;
                 botao.Invalidate();
                 return;
             }
 
             if (escolhida) {
-                botao.BackColor = azulClaro;
-                botao.ForeColor = azul;
+                botao.BackColor = VisualPadrao.AzulClaro;
+                botao.ForeColor = VisualPadrao.Azul;
                 botao.FlatAppearance.BorderSize = 1;
                 botao.FlatAppearance.BorderColor = Color.FromArgb(147, 197, 253);
+
             } else {
                 botao.BackColor = Color.White;
                 // O dia atual e o dia sob o mouse têm estilos distintos
                 botao.ForeColor = data.Month != mesCalendarioVisualizado.Month || data.Year != mesCalendarioVisualizado.Year
                     ? Color.FromArgb(148, 163, 184)
-                    : textoEscuro;
+                    : VisualPadrao.TextoPrincipal;
             }
             botao.Invalidate();
         }
-        
+
         private void SelecionarDataCalendario(DateTime data) {
             data = data.Date;
             if (campoDataAtivo == campoDataInicial) {
                 dataInicialSelecionada = data;
                 if (txtDataInicial != null) {
                     txtDataInicial.Text = data.ToString("dd/MM/yyyy");
-                    txtDataInicial.ForeColor = textoEscuro;
+                    txtDataInicial.ForeColor = VisualPadrao.TextoPrincipal;
                 }
+
             } else if (campoDataAtivo == campoDataFinal) {
                 dataFinalSelecionada = data;
+
                 if (txtDataFinal != null) {
                     txtDataFinal.Text = data.ToString("dd/MM/yyyy");
-                    txtDataFinal.ForeColor = textoEscuro;
+                    txtDataFinal.ForeColor = VisualPadrao.TextoPrincipal;
                 }
             }
 
@@ -702,7 +720,9 @@ namespace Stingray {
 
         private Panel CriarCampoData(Point location, bool dataInicial) {
             Panel campo = new Panel();
-            campo.Name = dataInicial ? "campoDataInicial" : "campoDataFinal";
+            campo.Name = dataInicial
+                ? "campoDataInicial"
+                : "campoDataFinal";
             campo.Location = location;
             campo.Size = new Size(220, 28);
             campo.BackColor = Color.White;
@@ -710,27 +730,39 @@ namespace Stingray {
             campo.Paint += CampoFiltro_Paint;
 
             TextBox texto = new TextBox();
-            texto.Name = dataInicial ? "txtDataInicial" : "txtDataFinal";
+            texto.Name = dataInicial
+                ? "txtDataInicial"
+                : "txtDataFinal";
             texto.ReadOnly = true;
             texto.BorderStyle = BorderStyle.None;
             texto.BackColor = Color.White;
-            texto.ForeColor = textoEscuro;
+            texto.ForeColor = VisualPadrao.TextoPrincipal;
             texto.Font = new Font("Segoe UI", 8.5F, FontStyle.Regular);
             texto.TextAlign = HorizontalAlignment.Left;
             texto.Location = new Point(8, 6);
             texto.Size = new Size(166, 16);
             texto.TabStop = false;
-            DateTime? dataSelecionada = dataInicial ? dataInicialSelecionada : dataFinalSelecionada;
-            texto.Text = dataSelecionada.HasValue ? dataSelecionada.Value.ToString("dd/MM/yyyy") : "Selecione uma data";
-            texto.ForeColor = dataSelecionada.HasValue ? textoEscuro : textoPlaceholder;
+            DateTime? dataSelecionada = dataInicial
+                ? dataInicialSelecionada
+                : dataFinalSelecionada;
+            texto.Text = dataSelecionada.HasValue
+                ? dataSelecionada.Value.ToString("dd/MM/yyyy")
+                : "Selecione uma data";
+            texto.ForeColor = dataSelecionada.HasValue
+                ? VisualPadrao.TextoPrincipal
+                : VisualPadrao.TextoPlaceholder;
 
             Button botaoCalendario = new Button();
-            botaoCalendario.Name = dataInicial ? "btnCalendarioDataInicial" : "btnCalendarioDataFinal";
+            botaoCalendario.Name = dataInicial
+                ? "btnCalendarioDataInicial"
+                : "btnCalendarioDataFinal";
             botaoCalendario.Location = new Point(188, 1);
             botaoCalendario.Size = new Size(28, 26);
             ConfigurarBotaoIconeCalendario(botaoCalendario, TipoIconeCalendario.DataInicial);
             botaoCalendario.FlatAppearance.MouseOverBackColor = Color.FromArgb(239, 246, 255);
-            botaoCalendario.AccessibleName = dataInicial ? "Abrir calendário da data inicial" : "Abrir calendário da data final";
+            botaoCalendario.AccessibleName = dataInicial
+                ? "Abrir calendário da data inicial"
+                : "Abrir calendário da data final";
             botaoCalendario.Click += delegate { AlternarCalendarioData(campo, dataInicial); };
 
             campo.Controls.Add(texto);
@@ -739,6 +771,7 @@ namespace Stingray {
             if (dataInicial) {
                 txtDataInicial = texto;
                 btnCalendarioInicial = botaoCalendario;
+
             } else {
                 txtDataFinal = texto;
                 btnCalendarioFinal = botaoCalendario;
@@ -748,7 +781,8 @@ namespace Stingray {
         }
 
         private void AlternarCalendarioData(Panel campo, bool dataInicial) {
-            if (calendarioFlutuante == null || campo == null) return;
+            if (calendarioFlutuante == null || campo == null)
+                return;
             if (calendarioFlutuante.Visible && campoDataAtivo == campo) {
                 calendarioFlutuante.Visible = false;
                 campoDataAtivo = null;
@@ -777,7 +811,8 @@ namespace Stingray {
         }
 
         private void AlternarPopupPeriodo() {
-            if (popupPeriodo == null) return;
+            if (popupPeriodo == null)
+                return;
             if (popupPeriodo.Visible) {
                 FecharPopupPeriodo();
                 return;
@@ -796,11 +831,11 @@ namespace Stingray {
             }
             if (txtDataInicial != null) {
                 txtDataInicial.Text = dataInicialSelecionada.HasValue ? dataInicialSelecionada.Value.ToString("dd/MM/yyyy") : "Selecione uma data";
-                txtDataInicial.ForeColor = dataInicialSelecionada.HasValue ? textoEscuro : textoPlaceholder;
+                txtDataInicial.ForeColor = dataInicialSelecionada.HasValue ? VisualPadrao.TextoPrincipal : VisualPadrao.TextoPlaceholder;
             }
             if (txtDataFinal != null) {
                 txtDataFinal.Text = dataFinalSelecionada.HasValue ? dataFinalSelecionada.Value.ToString("dd/MM/yyyy") : "Selecione uma data";
-                txtDataFinal.ForeColor = dataFinalSelecionada.HasValue ? textoEscuro : textoPlaceholder;
+                txtDataFinal.ForeColor = dataFinalSelecionada.HasValue ? VisualPadrao.TextoPrincipal : VisualPadrao.TextoPlaceholder;
             }
 
             popupPeriodo.Visible = true;
@@ -831,7 +866,7 @@ namespace Stingray {
             dataInicialAplicada = inicial;
             dataFinalAplicada = final;
             txtPeriodo.Text = inicial.ToString("dd/MM/yyyy") + " - " + final.ToString("dd/MM/yyyy");
-            txtPeriodo.ForeColor = textoEscuro;
+            txtPeriodo.ForeColor = VisualPadrao.TextoPrincipal;
             FecharPopupPeriodo();
         }
 
@@ -840,30 +875,32 @@ namespace Stingray {
         }
 
         private void FecharPopupPeriodo() {
-            if (calendarioFlutuante != null) calendarioFlutuante.Visible = false;
+            if (calendarioFlutuante != null)
+                calendarioFlutuante.Visible = false;
             campoDataAtivo = null;
-            if (popupPeriodo != null) popupPeriodo.Visible = false;
+            if (popupPeriodo != null)
+                popupPeriodo.Visible = false;
         }
 
         private void LimparFiltros() {
             txtAluno.Text = "Digite o nome do aluno...";
-            txtAluno.ForeColor = textoPlaceholder;
+            txtAluno.ForeColor = VisualPadrao.TextoPlaceholder;
             placeholderAluno = true;
-            if (cmbTurma.Items.Count > 0) cmbTurma.SelectedIndex = 0;
-            if (cmbStatus.Items.Count > 0) cmbStatus.SelectedIndex = 0;
+            if (cmbStatus.Items.Count > 0)
+                cmbStatus.SelectedIndex = 0;
             txtPeriodo.Text = "Selecione o período";
-            txtPeriodo.ForeColor = textoPlaceholder;
+            txtPeriodo.ForeColor = VisualPadrao.TextoPlaceholder;
             dataInicialAplicada = null;
             dataFinalAplicada = null;
             dataInicialSelecionada = null;
             dataFinalSelecionada = null;
             if (txtDataInicial != null) {
                 txtDataInicial.Text = "Selecione uma data";
-                txtDataInicial.ForeColor = textoPlaceholder;
+                txtDataInicial.ForeColor = VisualPadrao.TextoPlaceholder;
             }
             if (txtDataFinal != null) {
                 txtDataFinal.Text = "Selecione uma data";
-                txtDataFinal.ForeColor = textoPlaceholder;
+                txtDataFinal.ForeColor = VisualPadrao.TextoPlaceholder;
             }
             FecharPopupPeriodo();
         }
@@ -873,20 +910,21 @@ namespace Stingray {
         }
 
         private void PreencherPagamentosDeExemplo() {
-            gridPayments.Rows.Add("20/05/2024", "Maria Silva", "20/05/2024", "Hidroginástica", "Mai/2024", "Dinheiro", "180,00", "Pago", "");
-            gridPayments.Rows.Add("18/05/2024", "João Pedro", "18/05/2024", "Natação Iniciante", "Mai/2024", "PIX", "180,00", "Pago", "");
-            gridPayments.Rows.Add("15/05/2024", "Ana Clara", "22/05/2024", "Natação Intermediário", "Mai/2024", "Cartão de Débito", "180,00", "Pago", "");
-            gridPayments.Rows.Add("14/05/2024", "Pedro Henrique", "21/05/2024", "Natação Avançado", "Mai/2024", "Dinheiro", "180,00", "Pago", "");
-            gridPayments.Rows.Add("10/05/2024", "Laura Souza", "17/05/2024", "Natação Adulto", "Mai/2024", "PIX", "180,00", "Pago", "");
-            gridPayments.Rows.Add("07/05/2024", "Gabriel Lima", "19/05/2024", "Natação Master", "Abr/Mai 2024", "Boleto Bancário", "360,00", "Pago", "");
-            gridPayments.Rows.Add("05/05/2024", "Beatriz Oliveira", "16/05/2024", "Natação Competição", "Mai/2024", "Cartão de Crédito", "180,00", "Pago", "");
-            gridPayments.Rows.Add("02/05/2024", "Miguel Ferreira", "15/05/2024", "Natação Iniciante", "Mai/2024", "Dinheiro", "180,00", "Pendente", "");
-            gridPayments.Rows.Add("30/04/2024", "Sofia Martins", "14/05/2024", "Hidroginástica", "Abr/2024", "PIX", "180,00", "Pago", "");
-            gridPayments.Rows.Add("28/04/2024", "Rafael Santos", "08/06/2024", "Natação Competição", "Abr/2024", "Boleto Bancário", "180,00", "Atrasado", "");
+            gridPayments.Rows.Add("20/05/2024", "Maria Silva", "Hidroginástica", "Mai/2024", "Dinheiro", "180,00", "Pago", "");
+            gridPayments.Rows.Add("18/05/2024", "João Pedro", "Natação Iniciante", "Mai/2024", "PIX", "180,00", "Pago", "");
+            gridPayments.Rows.Add("15/05/2024", "Ana Clara", "Natação Intermediário", "Mai/2024", "Cartão de Débito", "180,00", "Pago", "");
+            gridPayments.Rows.Add("14/05/2024", "Pedro Henrique", "Natação Avançado", "Mai/2024", "Dinheiro", "180,00", "Pago", "");
+            gridPayments.Rows.Add("10/05/2024", "Laura Souza", "Natação Adulto", "Mai/2024", "PIX", "180,00", "Pago", "");
+            gridPayments.Rows.Add("07/05/2024", "Gabriel Lima", "Natação Master", "Abr/Mai 2024", "Boleto Bancário", "360,00", "Pago", "");
+            gridPayments.Rows.Add("05/05/2024", "Beatriz Oliveira", "Natação Competição", "Mai/2024", "Cartão de Crédito", "180,00", "Pago", "");
+            gridPayments.Rows.Add("02/05/2024", "Miguel Ferreira", "Natação Iniciante", "Mai/2024", "Dinheiro", "180,00", "Pendente", "");
+            gridPayments.Rows.Add("30/04/2024", "Sofia Martins", "Hidroginástica", "Abr/2024", "PIX", "180,00", "Pago", "");
+            gridPayments.Rows.Add("28/04/2024", "Rafael Santos", "Natação Competição", "Abr/2024", "Boleto Bancário", "180,00", "Atrasado", "");
         }
 
         private void GridPayments_CellPainting(object sender, DataGridViewCellPaintingEventArgs e) {
-            if (e.RowIndex < 0) return;
+            if (e.RowIndex < 0)
+                return;
             if (e.ColumnIndex == colStatus.Index) {
                 e.PaintBackground(e.CellBounds, true);
                 string status = Convert.ToString(e.FormattedValue);
@@ -897,6 +935,7 @@ namespace Stingray {
                     background = Color.FromArgb(255, 244, 217);
                     foreground = Color.FromArgb(196, 122, 0);
                     width = 54;
+
                 } else if (status == "Atrasado") {
                     background = Color.FromArgb(254, 228, 226);
                     foreground = Color.FromArgb(217, 45, 32);
@@ -909,6 +948,7 @@ namespace Stingray {
                     TextRenderer.DrawText(e.Graphics, status, statusFont, pill, foreground,
                         TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding);
                 e.Handled = true;
+
             } else if (e.ColumnIndex == colAcoes.Index) {
                 e.PaintBackground(e.CellBounds, true);
 
@@ -920,27 +960,80 @@ namespace Stingray {
                 Rectangle edit = new Rectangle(startX, startY, actionSize, actionSize);
                 Rectangle delete = new Rectangle(edit.Right + actionGap, startY, actionSize, actionSize);
 
-                using (Brush editFill = new SolidBrush(Color.FromArgb(247, 250, 255)))
+                bool hoverEdit = e.RowIndex == linhaAcaoSobMousePg && botaoAcaoSobMousePg == 0;
+                bool hoverDelete = e.RowIndex == linhaAcaoSobMousePg && botaoAcaoSobMousePg == 1;
+                using (Brush editFill = new SolidBrush(hoverEdit ? Color.FromArgb(219, 234, 254) : Color.FromArgb(247, 250, 255)))
                     e.Graphics.FillRectangle(editFill, edit);
-                using (Pen editPen = new Pen(Color.FromArgb(219, 234, 254)))
+                using (Pen editPen = new Pen(hoverEdit ? Color.FromArgb(147, 197, 253) : Color.FromArgb(219, 234, 254)))
                     e.Graphics.DrawRectangle(editPen, edit);
-                using (Brush deleteFill = new SolidBrush(Color.FromArgb(255, 248, 248)))
+                using (Brush deleteFill = new SolidBrush(hoverDelete ? Color.FromArgb(254, 226, 226) : Color.FromArgb(255, 248, 248)))
                     e.Graphics.FillRectangle(deleteFill, delete);
-                using (Pen deletePen = new Pen(Color.FromArgb(254, 226, 226)))
+                using (Pen deletePen = new Pen(hoverDelete ? Color.FromArgb(252, 165, 165) : Color.FromArgb(254, 226, 226)))
                     e.Graphics.DrawRectangle(deletePen, delete);
 
                 using (Font actionFont = new Font("Segoe MDL2 Assets", 10F)) {
                     TextRenderer.DrawText(e.Graphics, "\uE104", actionFont, edit,
-                        Color.FromArgb(25, 86, 196), TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding);
+                        hoverEdit ? Color.FromArgb(29, 78, 216) : Color.FromArgb(25, 86, 196), TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding);
                     TextRenderer.DrawText(e.Graphics, "\uE107", actionFont, delete,
-                        Color.FromArgb(220, 38, 38), TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding);
+                        hoverDelete ? Color.FromArgb(185, 28, 28) : Color.FromArgb(220, 38, 38), TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding);
                 }
                 e.Handled = true;
             }
         }
 
+        private int IndiceAcaoPagamentoSobMouse(int coluna, int linha) {
+            if (coluna < 0 || linha < 0)
+                return -1;
+            Rectangle celula = gridPayments.GetCellDisplayRectangle(coluna, linha, false);
+            Point mouse = gridPayments.PointToClient(Cursor.Position);
+            Point local = new Point(mouse.X - celula.Left, mouse.Y - celula.Top);
+            const int tamanho = 26, espaco = 7;
+            int largura = tamanho * 2 + espaco;
+            int x = Math.Max(2, (celula.Width - largura) / 2);
+            int y = Math.Max(2, (celula.Height - tamanho) / 2);
+            Rectangle editar = new Rectangle(x, y, tamanho, tamanho);
+            Rectangle excluir = new Rectangle(editar.Right + espaco, y, tamanho, tamanho);
+            if (editar.Contains(local))
+                return 0;
+            if (excluir.Contains(local))
+                return 1;
+
+            return -1;
+        }
+
+        private void GridPayments_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e) {
+            if (e.RowIndex < 0 || e.ColumnIndex != colAcoes.Index) {
+                LimparHoverAcoesPagamento();
+                return;
+            }
+            int indice = IndiceAcaoPagamentoSobMouse(e.ColumnIndex, e.RowIndex);
+            if (linhaAcaoSobMousePg == e.RowIndex && botaoAcaoSobMousePg == indice)
+                return;
+            LimparHoverAcoesPagamento();
+            linhaAcaoSobMousePg = e.RowIndex; botaoAcaoSobMousePg = indice;
+            gridPayments.Cursor = indice >= 0
+                ? Cursors.Hand
+                : Cursors.Default;
+            gridPayments.InvalidateCell(e.ColumnIndex, e.RowIndex);
+        }
+
+        private void GridPayments_CellMouseLeave(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex == linhaAcaoSobMousePg && e.ColumnIndex == colAcoes.Index)
+                LimparHoverAcoesPagamento();
+        }
+
+        private void LimparHoverAcoesPagamento() {
+            int linha = linhaAcaoSobMousePg;
+            linhaAcaoSobMousePg = -1;
+            botaoAcaoSobMousePg = -1;
+            gridPayments.Cursor = Cursors.Default;
+            if (linha >= 0 && linha < gridPayments.Rows.Count)
+                gridPayments.InvalidateCell(colAcoes.Index, linha);
+        }
+
         private void GridPayments_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            if (e.RowIndex < 0 || e.ColumnIndex != colAcoes.Index) return;
+            if (e.RowIndex < 0 || e.ColumnIndex != colAcoes.Index)
+                return;
             // As ações de edição e exclusão serão feitas depois
         }
 
@@ -972,32 +1065,38 @@ namespace Stingray {
                     return false;
 
                 Control alvo = Control.FromHandle(m.HWnd);
-                if (alvo != null && alvo.FindForm() != form) return false;
+                if (alvo != null && alvo.FindForm() != form)
+                    return false;
                 if (alvo == null) {
                     if (!form.Bounds.Contains(Cursor.Position)) {
                         if (popupSecundario != null) popupSecundario.Visible = false;
                         popup.Visible = false;
                     }
+
                     return false;
                 }
 
-                if (EhFilhoDe(alvo, popupSecundario)) return false;
+                if (EhFilhoDe(alvo, popupSecundario))
+                    return false;
                 if (EhFilhoDe(alvo, popup) || EhFilhoDe(alvo, acionador)) {
                     if (popupSecundario != null && popupSecundario.Visible && !EhFilhoDe(alvo, popupSecundario))
                         popupSecundario.Visible = false;
                     return false;
                 }
 
-                if (popupSecundario != null) popupSecundario.Visible = false;
+                if (popupSecundario != null)
+                    popupSecundario.Visible = false;
                 popup.Visible = false;
                 return false;
             }
 
             private static bool EhFilhoDe(Control controle, Control pai) {
-                if (controle == null || pai == null) return false;
+                if (controle == null || pai == null)
+                    return false;
                 Control atual = controle;
                 while (atual != null) {
-                    if (atual == pai) return true;
+                    if (atual == pai)
+                        return true;
                     atual = atual.Parent;
                 }
                 return false;
