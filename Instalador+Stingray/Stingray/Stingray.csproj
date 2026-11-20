@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05352C82-35AC-438E-904A-0EF8C1ABA39B}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Stingray</RootNamespace>
+    <AssemblyName>Stingray</AssemblyName>
+    <ApplicationIcon>Assets\AquaFit.ico</ApplicationIcon>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MySqlConnector">
+      <Version>2.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver" Version="4.51.0" />
+    <PackageReference Include="Selenium.Support" Version="4.51.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.6.2" GeneratePathProperty="true" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BancoDeDados\Conexao.cs" />
+    <Compile Include="BancoDeDados\CredencialBancoDados.cs" />
+    <Compile Include="BancoDeDados\RepositorioMySqlBase.cs" />
+    <Compile Include="BancoDeDados\LeitorMySql.cs" />
+    <Compile Include="DadosTela\ResultadoConsultaCep.cs" />
+    <Compile Include="DadosTela\ParticipanteTurma.cs" />
+    <Compile Include="DadosTela\TurmaAlunoLinha.cs" />
+    <Compile Include="DadosTela\EstadoWhatsApp.cs" />
+    <Compile Include="DadosTela\WhatsAppEnvio.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Endereco.cs" />
+    <Compile Include="Entidades\Telefone.cs" />
+    <Compile Include="Entidades\Aluno.cs" />
+    <Compile Include="DadosTela\ResumoDashboard.cs" />
+    <Compile Include="DadosTela\ProximaAulaDashboard.cs" />
+    <Compile Include="DadosTela\ParticipantePresenca.cs" />
+    <Compile Include="DadosTela\ResumoFrequenciaAluno.cs" />
+    <Compile Include="DadosTela\ConfiguracaoFrequencia.cs" />
+    <Compile Include="DadosTela\AlunoInativoDashboard.cs" />
+    <Compile Include="DadosTela\ReposicaoPendenteDashboard.cs" />
+    <Compile Include="DadosTela\PagamentoLinha.cs" />
+    <Compile Include="Entidades\Professor.cs" />
+    <Compile Include="Entidades\Turma.cs" />
+    <Compile Include="Entidades\Responsavel.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Repositorios\PessoaRepositorio.cs" />
+    <Compile Include="Repositorios\ProfessorRepositorio.cs" />
+    <Compile Include="Repositorios\AlunoRepositorio.cs" />
+    <Compile Include="Repositorios\DashboardRepositorio.cs" />
+    <Compile Include="Repositorios\FrequenciaRepositorio.cs" />
+    <Compile Include="Repositorios\TurmaRepositorio.cs" />
+    <Compile Include="Repositorios\PagamentoRepositorio.cs" />
+    <Compile Include="Repositorios\WhatsAppConfiguracaoRepositorio.cs" />
+    <Compile Include="Repositorios\WhatsAppEnvioRepositorio.cs" />
+    <Compile Include="Servicos\AutenticacaoServico.cs" />
+    <Compile Include="Servicos\ProfessorServico.cs" />
+    <Compile Include="Servicos\AlunoServico.cs" />
+    <Compile Include="Servicos\DashboardServico.cs" />
+    <Compile Include="Servicos\FrequenciaServico.cs" />
+    <Compile Include="Servicos\TurmaServico.cs" />
+    <Compile Include="Servicos\PagamentoServico.cs" />
+    <Compile Include="Servicos\ConsultaCepServico.cs" />
+    <Compile Include="Servicos\CpfValidador.cs" />
+    <Compile Include="Servicos\ValidacaoDadosCadastro.cs" />
+    <Compile Include="BancoDeDados\SenhaHasher.cs" />
+    <Compile Include="Formularios\ContaAcessoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ContaAcessoForm.Designer.cs">
+      <DependentUpon>ContaAcessoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicos\WhatsAppServico.cs" />
+    <Compile Include="Servicos\RegraCobrancaWhatsApp.cs" />
+    <Compile Include="Servicos\RetencaoPagamentoRegra.cs" />
+    <Compile Include="Componentes\ToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\AlunosForm.Visual.cs">
+      <DependentUpon>AlunosForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Componentes\EstiloPopup.cs" />
+    <Compile Include="Componentes\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\PagamentosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PagamentosForm.Designer.cs">
+      <DependentUpon>PagamentosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ProfessoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProfessoresForm.Designer.cs">
+      <DependentUpon>ProfessoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\TurmasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\TurmasForm.Designer.cs">
+      <DependentUpon>TurmasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AlunosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AlunosForm.Designer.cs">
+      <DependentUpon>AlunosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PresencaForm.Frequencia.cs">
+      <DependentUpon>PresencaForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PresencaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PresencaForm.Designer.cs">
+      <DependentUpon>PresencaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\RelatoriosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\RelatoriosForm.Designer.cs">
+      <DependentUpon>RelatoriosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ConfiguracoesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ConfiguracoesForm.Designer.cs">
+      <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualPadrao.cs" />
+    <Compile Include="Componentes\ModoDesign.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Propriedades\AssemblyInfo.cs" />
+    <Compile Include="Propriedades\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Assets\AquaFit.png">
+      <LogicalName>Stingray.Assets.AquaFit.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AlunosForm.resx">
+      <DependentUpon>AlunosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ContaAcessoForm.resx">
+      <DependentUpon>ContaAcessoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TurmasForm.resx">
+      <DependentUpon>TurmasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PagamentosForm.resx">
+      <DependentUpon>PagamentosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PresencaForm.resx">
+      <DependentUpon>PresencaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ProfessoresForm.resx">
+      <DependentUpon>ProfessoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\RelatoriosForm.resx">
+      <DependentUpon>RelatoriosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ConfiguracoesForm.resx">
+      <DependentUpon>ConfiguracoesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\WhatsAppLogo.png">
+      <LogicalName>Stingray.Assets.WhatsAppLogo.png</LogicalName>
+    </EmbeddedResource>
+    <None Include="Propriedades\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="BancoDeDados\CriarBanco.sql" />
+    <None Include="BancoDeDados\Migracoes\20261119_ControleWhatsApp.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Formularios\ProfessorTurmasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProfessorTurmasForm.Designer.cs">
+      <DependentUpon>ProfessorTurmasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ProfessorCadastroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProfessorCadastroForm.Designer.cs">
+      <DependentUpon>ProfessorCadastroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\TurmaParticipantesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\TurmaParticipantesForm.Designer.cs">
+      <DependentUpon>TurmaParticipantesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\TurmaCadastroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\TurmaCadastroForm.Designer.cs">
+      <DependentUpon>TurmaCadastroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AlunoCadastroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AlunoCadastroForm.Designer.cs">
+      <DependentUpon>AlunoCadastroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FichaAlunoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FichaAlunoForm.Designer.cs">
+      <DependentUpon>FichaAlunoForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\ProfessorTurmasForm.resx">
+      <DependentUpon>ProfessorTurmasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ProfessorCadastroForm.resx">
+      <DependentUpon>ProfessorCadastroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TurmaParticipantesForm.resx">
+      <DependentUpon>TurmaParticipantesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TurmaCadastroForm.resx">
+      <DependentUpon>TurmaCadastroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AlunoCadastroForm.resx">
+      <DependentUpon>AlunoCadastroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FichaAlunoForm.resx">
+      <DependentUpon>FichaAlunoForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

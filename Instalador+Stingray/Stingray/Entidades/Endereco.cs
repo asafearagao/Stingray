@@ -1,0 +1,12 @@
+namespace Stingray.Entidades
+{
+
+    // Representa um endereço cadastrado no sistema
+    public class Endereco
+    {
+        public int IdEndereco { get; set; }
+        public string Numero { get; set; }
+        public string Cep { get; set; }
+        public string Complemento { get; set; }
+    }
+}
