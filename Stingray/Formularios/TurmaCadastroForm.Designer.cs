@@ -1,0 +1,242 @@
+﻿namespace Stingray
+{
+    partial class TurmaCadastroForm
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.Label lblDiaSemana;
+        private System.Windows.Forms.Label lblModalidade;
+        private System.Windows.Forms.Label lblHorarioInicio;
+        private System.Windows.Forms.Label lblHorarioFim;
+        private System.Windows.Forms.Label lblCapacidade;
+        private System.Windows.Forms.Label lblValorMensal;
+        private System.Windows.Forms.Label lblProfessor;
+        private System.Windows.Forms.ComboBox cmbDiaSemana;
+        private System.Windows.Forms.TextBox txtModalidade;
+        private System.Windows.Forms.TextBox txtHorarioInicio;
+        private System.Windows.Forms.TextBox txtHorarioFim;
+        private System.Windows.Forms.TextBox txtCapacidade;
+        private System.Windows.Forms.TextBox txtValorMensal;
+        private System.Windows.Forms.TextBox txtProfessor;
+        private System.Windows.Forms.Panel pnlSugestoes;
+        private System.Windows.Forms.ListBox lstSugestoes;
+        private System.Windows.Forms.Label lblEstadoSugestoes;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalvar;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && components != null) components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.lblDiaSemana = new System.Windows.Forms.Label();
+            this.lblModalidade = new System.Windows.Forms.Label();
+            this.lblHorarioInicio = new System.Windows.Forms.Label();
+            this.lblHorarioFim = new System.Windows.Forms.Label();
+            this.lblCapacidade = new System.Windows.Forms.Label();
+            this.lblValorMensal = new System.Windows.Forms.Label();
+            this.lblProfessor = new System.Windows.Forms.Label();
+            this.cmbDiaSemana = new System.Windows.Forms.ComboBox();
+            this.txtModalidade = new System.Windows.Forms.TextBox();
+            this.txtHorarioInicio = new System.Windows.Forms.TextBox();
+            this.txtHorarioFim = new System.Windows.Forms.TextBox();
+            this.txtCapacidade = new System.Windows.Forms.TextBox();
+            this.txtValorMensal = new System.Windows.Forms.TextBox();
+            this.txtProfessor = new System.Windows.Forms.TextBox();
+            this.pnlSugestoes = new System.Windows.Forms.Panel();
+            this.lstSugestoes = new System.Windows.Forms.ListBox();
+            this.lblEstadoSugestoes = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.pnlSugestoes.SuspendLayout();
+            this.SuspendLayout();
+            // Cabeçalho
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14F,
+                System.Drawing.FontStyle.Bold);
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblTitulo.Location = new System.Drawing.Point(24, 18);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Text = "Nova turma";
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Font = new System.Drawing.Font("Segoe UI", 8.5F,
+                System.Drawing.FontStyle.Regular);
+            this.lblDescricao.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblDescricao.Location = new System.Drawing.Point(25, 51);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Text = "Preencha os dados da nova turma.";
+            // Rótulos
+            this.lblDiaSemana.AutoSize = true;
+            this.lblDiaSemana.Location = new System.Drawing.Point(24, 88);
+            this.lblDiaSemana.Name = "lblDiaSemana";
+            this.lblDiaSemana.Size = new System.Drawing.Size(70, 15);
+            this.lblDiaSemana.Text = "Dia da semana";
+            this.lblModalidade.AutoSize = true;
+            this.lblModalidade.Location = new System.Drawing.Point(254, 88);
+            this.lblModalidade.Name = "lblModalidade";
+            this.lblModalidade.Size = new System.Drawing.Size(70, 15);
+            this.lblModalidade.Text = "Modalidade";
+            this.lblHorarioInicio.AutoSize = true;
+            this.lblHorarioInicio.Location = new System.Drawing.Point(24, 164);
+            this.lblHorarioInicio.Name = "lblHorarioInicio";
+            this.lblHorarioInicio.Size = new System.Drawing.Size(70, 15);
+            this.lblHorarioInicio.Text = "Horário de início";
+            this.lblHorarioFim.AutoSize = true;
+            this.lblHorarioFim.Location = new System.Drawing.Point(140, 164);
+            this.lblHorarioFim.Name = "lblHorarioFim";
+            this.lblHorarioFim.Size = new System.Drawing.Size(70, 15);
+            this.lblHorarioFim.Text = "Horário de fim";
+            this.lblCapacidade.AutoSize = true;
+            this.lblCapacidade.Location = new System.Drawing.Point(256, 164);
+            this.lblCapacidade.Name = "lblCapacidade";
+            this.lblCapacidade.Size = new System.Drawing.Size(70, 15);
+            this.lblCapacidade.Text = "Total de alunos";
+            this.lblValorMensal.AutoSize = true;
+            this.lblValorMensal.Location = new System.Drawing.Point(372, 164);
+            this.lblValorMensal.Name = "lblValorMensal";
+            this.lblValorMensal.Text = "Valor mensal (R$)";
+            this.lblProfessor.AutoSize = true;
+            this.lblProfessor.Location = new System.Drawing.Point(24, 240);
+            this.lblProfessor.Name = "lblProfessor";
+            this.lblProfessor.Size = new System.Drawing.Size(70, 15);
+            this.lblProfessor.Text = "Professor";
+            // Campos
+            this.cmbDiaSemana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDiaSemana.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.cmbDiaSemana.BackColor = System.Drawing.Color.White;
+            this.cmbDiaSemana.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.cmbDiaSemana.FormattingEnabled = true;
+            this.cmbDiaSemana.Items.AddRange(new object[] { "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo" });
+            this.cmbDiaSemana.Location = new System.Drawing.Point(24, 109);
+            this.cmbDiaSemana.Name = "cmbDiaSemana";
+            this.cmbDiaSemana.Size = new System.Drawing.Size(210, 25);
+            this.cmbDiaSemana.TabIndex = 0;
+            this.txtModalidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtModalidade.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtModalidade.Location = new System.Drawing.Point(254, 109);
+            this.txtModalidade.MaxLength = 30;
+            this.txtModalidade.Name = "txtModalidade";
+            this.txtModalidade.Size = new System.Drawing.Size(222, 24);
+            this.txtModalidade.TabIndex = 1;
+            this.txtHorarioInicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHorarioInicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtHorarioInicio.Location = new System.Drawing.Point(24, 185);
+            this.txtHorarioInicio.Name = "txtHorarioInicio";
+            this.txtHorarioInicio.Size = new System.Drawing.Size(100, 24);
+            this.txtHorarioInicio.TabIndex = 2;
+            this.txtHorarioFim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHorarioFim.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtHorarioFim.Location = new System.Drawing.Point(140, 185);
+            this.txtHorarioFim.Name = "txtHorarioFim";
+            this.txtHorarioFim.Size = new System.Drawing.Size(100, 24);
+            this.txtHorarioFim.TabIndex = 2;
+            this.txtCapacidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCapacidade.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtCapacidade.Location = new System.Drawing.Point(256, 185);
+            this.txtCapacidade.Name = "txtCapacidade";
+            this.txtCapacidade.Size = new System.Drawing.Size(100, 24);
+            this.txtCapacidade.TabIndex = 2;
+            this.txtCapacidade.MaxLength = 3;
+            this.txtProfessor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProfessor.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtProfessor.Location = new System.Drawing.Point(24, 261);
+            this.txtProfessor.Name = "txtProfessor";
+            this.txtProfessor.Size = new System.Drawing.Size(452, 24);
+            this.txtProfessor.TabIndex = 5;
+            this.txtValorMensal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValorMensal.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.txtValorMensal.Location = new System.Drawing.Point(372, 185);
+            this.txtValorMensal.Name = "txtValorMensal";
+            this.txtValorMensal.Size = new System.Drawing.Size(104, 24);
+            this.txtValorMensal.TabIndex = 5;
+            // Sugestões do professor
+            this.pnlSugestoes.BackColor = System.Drawing.Color.FromArgb(203, 213, 225);
+            this.pnlSugestoes.Controls.Add(this.lstSugestoes);
+            this.pnlSugestoes.Controls.Add(this.lblEstadoSugestoes);
+            this.pnlSugestoes.Location = new System.Drawing.Point(24, 301);
+            this.pnlSugestoes.Name = "pnlSugestoes";
+            this.pnlSugestoes.Padding = new System.Windows.Forms.Padding(1);
+            this.pnlSugestoes.Size = new System.Drawing.Size(452, 96);
+            this.pnlSugestoes.TabIndex = 6;
+            this.pnlSugestoes.Visible = false;
+            this.lstSugestoes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstSugestoes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstSugestoes.DisplayMember = "NomeExibicao";
+            this.lstSugestoes.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lstSugestoes.IntegralHeight = false;
+            this.lstSugestoes.ItemHeight = 24;
+            this.lstSugestoes.Name = "lstSugestoes";
+            this.lstSugestoes.Visible = false;
+            this.lblEstadoSugestoes.BackColor = System.Drawing.Color.White;
+            this.lblEstadoSugestoes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEstadoSugestoes.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblEstadoSugestoes.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblEstadoSugestoes.Name = "lblEstadoSugestoes";
+            this.lblEstadoSugestoes.Padding = new System.Windows.Forms.Padding(10, 0, 8, 0);
+            this.lblEstadoSugestoes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEstadoSugestoes.Visible = false;
+            // Botões
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            this.btnCancelar.Location = new System.Drawing.Point(254, 420);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(106, 38);
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(25, 86, 196);
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Location = new System.Drawing.Point(366, 420);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(126, 38);
+            this.btnSalvar.Text = "Adicionar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            // TurmaCadastroForm
+            this.AcceptButton = this.btnSalvar;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(500, 478);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.pnlSugestoes);
+            this.Controls.Add(this.txtProfessor);
+            this.Controls.Add(this.lblProfessor);
+            this.Controls.Add(this.txtValorMensal);
+            this.Controls.Add(this.lblValorMensal);
+            this.Controls.Add(this.txtCapacidade);
+            this.Controls.Add(this.txtHorarioFim);
+            this.Controls.Add(this.txtHorarioInicio);
+            this.Controls.Add(this.txtModalidade);
+            this.Controls.Add(this.cmbDiaSemana);
+            this.Controls.Add(this.lblCapacidade);
+            this.Controls.Add(this.lblHorarioFim);
+            this.Controls.Add(this.lblHorarioInicio);
+            this.Controls.Add(this.lblModalidade);
+            this.Controls.Add(this.lblDiaSemana);
+            this.Controls.Add(this.lblDescricao);
+            this.Controls.Add(this.lblTitulo);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "TurmaCadastroForm";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Nova turma";
+            this.pnlSugestoes.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+    }
+}
