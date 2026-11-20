@@ -87,6 +87,7 @@
     <Compile Include="Entidades\Professor.cs" />
     <Compile Include="Entidades\Turma.cs" />
     <Compile Include="Entidades\Responsavel.cs" />
+    <Compile Include="Repositorios\RelatorioRepositorio.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
     <Compile Include="Repositorios\PessoaRepositorio.cs" />
     <Compile Include="Repositorios\ProfessorRepositorio.cs" />

@@ -116,7 +116,7 @@ namespace Stingray.Repositorios
                 int idOrigem = ObterOuCriarOcorrenciaNaTransacao(conexao, transacao, idTurma, dataOrigem.Date);
                 int idDestino = ObterOuCriarOcorrenciaNaTransacao(conexao, transacao, idTurma, dataDestino.Date);
 
-                const string validarDestinoSql = "SELECT COUNT(*) FROM frequenciaWHERE id_ocorrencia = @ocorrencia;";
+                const string validarDestinoSql = "SELECT COUNT(*) FROM frequencia WHERE id_ocorrencia = @ocorrencia;";
 
                 using (MySqlCommand validarDestino = new MySqlCommand(validarDestinoSql, conexao, transacao))
                 {
